@@ -7,6 +7,9 @@ let header = document.querySelector(".header");
 let headerItem = document.querySelectorAll(".header__item");
 let nav = document.querySelector(".header__nav");
 let burger = document.querySelector(".header__burger");
+let topLine = burger.querySelector("span:first-child");
+let middleLine = burger.querySelector("span:nth-child(2)");
+let bottomLine = burger.querySelector("span:last-child");
 
 burger.addEventListener("click", burgerMenu);
 
@@ -29,9 +32,9 @@ headerItem.forEach(item => {
 
 function burgerMenu() {
     if (header.classList.contains("header--active")) {
-        header.classList.remove("header--active");
-        nav.classList.remove("nav--active");
-        burger.classList.remove("burger--active");
+      header.classList.remove("header--active");
+      nav.classList.remove("nav--active");
+      burger.classList.remove("burger--active");
     } else {
         header.classList.add("header--active");
         nav.classList.add("nav--active");

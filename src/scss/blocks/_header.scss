@@ -117,18 +117,21 @@
         &:nth-child(1) {
             top: 0;
             left: 50%;
-            transform: translateX(-50%);            
+            transform: translateX(-50%);
+
         }
 
         &:nth-child(2) {
             top: 50%;
             transform: translateY(-50%);
+
         }
 
         &:nth-child(3) {
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
+
         }
     }
 }
@@ -193,18 +196,17 @@
             background-color: $light-red-grey;
 
             &:nth-child(1) {
-                animation: lineDisappear .35s forwards .35s,
-                            topLineRotate 1.3s forwards .8s,
-                            topLineCrossAfterRotate .6s forwards 1.85s;
+              animation: lineDisappear .35s forwards .35s alternate,
+                          topLineRotate 1.3s forwards .8s alternate,
+                          topLineCrossAfterRotate .6s forwards 1.85s alternate;
             }
 
             &:nth-child(2) {
-                animation: middleLineToCross 1s forwards;
-                animation-delay: 1.535s;
+              animation: middleLineToCross 1s forwards 1.535s alternate;
             }
 
             &:nth-child(3) {
-                animation: lineDisappear .35s forwards .3s;
+              animation: lineDisappear .35s forwards .3s alternate;
             }
         }
     }
