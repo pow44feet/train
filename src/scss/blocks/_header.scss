@@ -118,13 +118,14 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-
+            animation: topLineFromCrossToLine 3s forwards;
         }
 
         &:nth-child(2) {
             top: 50%;
-            transform: translateY(-50%);
-
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: middleLineFromCrossToLine 3s forwards;
         }
 
         &:nth-child(3) {
@@ -165,7 +166,7 @@
 /* Burger-click act3 */
 @keyframes middleLineToCross {
     100% {
-        transform: translateY(-50%) rotate(135deg);
+        transform: translate(-50%, -50%) rotate(135deg);
     }
 }
 
@@ -177,6 +178,33 @@
         opacity: 1;
     }
 }
+//===========================================
+//FROM CROSS TO LINES
+//===========================================
+@keyframes middleLineFromCrossToLine {
+    0% {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(135deg);
+    }
+    100% {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-720deg);
+    }
+}
+
+@keyframes topLineFromCrossToLine {
+    0% {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(765deg);
+    }
+    100% {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+}
+//===========================================
+//FROM CROSS TO LINES
+//===========================================
 
 .header--active {
 
