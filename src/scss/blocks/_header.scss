@@ -118,21 +118,23 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            animation: topLineFromCrossToLine 3s forwards;
+            animation: topLineFromCrossToLine 1s forwards,
+                        topLineAppearsFromMiddle 1s forwards 1s;
         }
 
         &:nth-child(2) {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            animation: middleLineFromCrossToLine 3s forwards;
+            animation: middleLineFromCrossToLine 1s forwards;
         }
 
         &:nth-child(3) {
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-
+            animation: bottomLineAppears 1s forwards,
+                        bottomLineAppearsFromMiddle 1s forwards 1s;
         }
     }
 }
@@ -181,25 +183,73 @@
 //===========================================
 //FROM CROSS TO LINES
 //===========================================
-@keyframes middleLineFromCrossToLine {
-    0% {
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(135deg);
-    }
-    100% {
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(-720deg);
-    }
-}
-
 @keyframes topLineFromCrossToLine {
     0% {
         top: 50%;
-        transform: translate(-50%, -50%) rotate(765deg);
+        transform: translate(-50%, -50%) rotate(-45deg);
+        transition-timing-function: linear;
     }
     100% {
         top: 50%;
-        transform: translate(-50%, -50%) rotate(180deg);
+        transform: translate(-50%, -50%) rotate(0deg);
+        transition-timing-function: linear;
+    }
+}
+
+@keyframes middleLineFromCrossToLine {
+    0% {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        transition-timing-function: linear;
+    }
+    100% {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
+        transition-timing-function: linear;
+    }
+}
+
+@keyframes topLineAppearsFromMiddle {
+    0% {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition-timing-function: linear;
+    }
+    100% {
+        top: 0;
+        transform: translateX(-50%);
+        transition-timing-function: linear;
+    }
+}
+
+@keyframes bottomLineAppears {
+    0% {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+    99% {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+    100% {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+@keyframes bottomLineAppearsFromMiddle {
+    0% {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition-timing-function: linear;
+    }
+    100% {
+        top: 100%;
+        transform: translate(-50%, -100%);
+        transition-timing-function: linear;
     }
 }
 //===========================================
