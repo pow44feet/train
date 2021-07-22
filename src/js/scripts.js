@@ -4,40 +4,47 @@ work(); */
 
 
 let header = document.querySelector(".header");
-let headerItem = document.querySelectorAll(".header__item");
+let headerLink = document.querySelectorAll(".header__link");
+let headerBgImage = document.querySelector(".header__bg-image");
 let nav = document.querySelector(".header__nav");
 let burger = document.querySelector(".header__burger");
-let topLine = burger.querySelector("span:first-child");
-let middleLine = burger.querySelector("span:nth-child(2)");
-let bottomLine = burger.querySelector("span:last-child");
+
 
 burger.addEventListener("click", burgerMenu);
-
-
-
-headerItem.forEach(item => {
-    item.addEventListener("mouseenter", (e) => {
-        let target = e.target;
-        console.log(target);
-        /* if (item === e.target) {
-            item.classList.add("header__item--active");
-        } else {
-            item.classList.remove("header__item--active");
-        } */
-    });
-});
 
 
 
 
 function burgerMenu() {
     if (header.classList.contains("header--active")) {
-      header.classList.remove("header--active");
-      nav.classList.remove("nav--active");
-      burger.classList.remove("burger--active");
+        header.classList.remove("header--active");
+        nav.classList.remove("nav--active");
+        burger.classList.remove("burger--active");
     } else {
         header.classList.add("header--active");
         nav.classList.add("nav--active");
         burger.classList.add("burger--active");
     }
 }
+
+
+headerLink.forEach((item, index) => {
+    console.log(item);
+    item.addEventListener("mouseenter", (e) => {
+        if (item == e.target) {
+            let itemIndex = index;
+            console.log(itemIndex);
+            headerBgImage.style.backgroundImage = `url(${bgMenu[itemIndex]})`;
+            headerBgImage.style.transform = "scale(1)";
+        }
+        
+    });
+});
+
+let bgMenu = [
+    "../images/mobile_menu_bird_1.jpg",
+    "../images/mobile_menu_bird_2.jpg",
+    "../images/mobile_menu_bird_3.jpg",
+    "../images/mobile_menu_bird_4.jpg",
+    "../images/mobile_menu_bird_5.jpg",
+];
