@@ -4,6 +4,7 @@ work(); */
 
 
 let header = document.querySelector(".header");
+let headerItem = document.querySelectorAll(".header__item");
 let headerLink = document.querySelectorAll(".header__link");
 let headerBgImage = document.querySelector(".header__bg-image");
 let nav = document.querySelector(".header__nav");
@@ -11,9 +12,6 @@ let burger = document.querySelector(".header__burger");
 
 
 burger.addEventListener("click", burgerMenu);
-
-
-
 
 function burgerMenu() {
     if (header.classList.contains("header--active")) {
@@ -27,24 +25,14 @@ function burgerMenu() {
     }
 }
 
-
 headerLink.forEach((item, index) => {
-    console.log(item);
     item.addEventListener("mouseenter", (e) => {
         if (item == e.target) {
-            let itemIndex = index;
-            console.log(itemIndex);
-            headerBgImage.style.backgroundImage = `url(${bgMenu[itemIndex]})`;
-            headerBgImage.style.transform = "scale(1)";
+            headerItem.forEach(elem => {
+                elem.classList.remove("header__item--active");
+            });
+            item.closest(".header__item").classList.add("header__item--active");
         }
         
     });
 });
-
-let bgMenu = [
-    "../images/mobile_menu_bird_1.jpg",
-    "../images/mobile_menu_bird_2.jpg",
-    "../images/mobile_menu_bird_3.jpg",
-    "../images/mobile_menu_bird_4.jpg",
-    "../images/mobile_menu_bird_5.jpg",
-];
