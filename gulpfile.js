@@ -87,7 +87,7 @@ const htmlInclude = () => {
 }
 
 const imagesToApp = () => {
-    return src(["./src/images/**.jpg", "./src/images/**.png", "./src/images/**.jpeg"])
+    return src(["./src/images/**/*.jpg", "./src/images/**/*.png", "./src/images/**/*.jpeg", "./src/images/**/*.webp"])
         .pipe(dest("./app/images"))
 }
 

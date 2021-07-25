@@ -2,6 +2,9 @@
 
 work(); */
 
+import SwiperCore, { Navigation, Pagination } from '../../node_modules/swiper/core';
+SwiperCore.use([Navigation, Pagination]);
+
 
 let header = document.querySelector(".header");
 let headerItem = document.querySelectorAll(".header__item");
@@ -33,6 +36,22 @@ headerLink.forEach((item, index) => {
             });
             item.closest(".header__item").classList.add("header__item--active");
         }
-        
+
     });
+});
+
+const swiper = new SwiperCore('.swiper-container', {
+  // Optional parameters
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
