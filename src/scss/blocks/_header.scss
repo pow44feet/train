@@ -27,13 +27,14 @@
 .header__logo {
   margin-right: auto;
   padding: 20px 0;
-  font-family: "LaicaA-Bold", Helvetica, Arial, sans-serif;
+  font-family: "Fregat_regular", Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 42px;
   line-height: 120%;
   letter-spacing: 1px;
   word-spacing: 1px;
   color: rgba(#ffffff, .75);
+  text-transform: uppercase;
 }
 
 .header__nav {
@@ -156,6 +157,7 @@
   width: 40px;
   height: 40px;
   margin-right: 20px;
+  fill: rgba(#ffffff, .75);
 }
 
 .header__mail-appeal {
@@ -184,6 +186,7 @@
     width: 100%;
     height: 4px;
     background-color: rgba($white-color, .75);
+    border-radius: 2px;
     transition: all 0.35s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
     &:nth-child(1) {
