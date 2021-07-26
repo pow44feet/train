@@ -52,7 +52,7 @@ const swiper = new SwiperCore('.swiper-container', {
 
   // Navigation arrows
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.hero-slider__next',
+    prevEl: '.hero-slider__prev',
   },
 });

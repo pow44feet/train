@@ -9,12 +9,12 @@
   &::after {
     position: absolute;
     content: '';
-    z-index: 2;
+    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba($black-color, 0.3);
+    background-color: rgba($black-color, 0.47);
   }
 }
 
@@ -47,7 +47,7 @@
   border-radius: 50%;
   margin: 0;
   margin-bottom: 22px;
-  background-color: rgba($white-color, 0.75);
+  background-color: $white-main-shade;
 
   &::after {
     position: absolute;
@@ -57,7 +57,7 @@
     transform: translate(-50%, -50%);
     width: 6px;
     height: 6px;
-    border: 1px solid rgba($white-color, 0.75);
+    border: 1px solid $white-main-shade;
     border-radius: 50%;
     background-color: transparent;
     transition: .4s cubic-bezier(0.858, 0.01, 0.068, 0.99);
@@ -68,5 +68,100 @@
   &::after {
     width: 16px;
     height: 16px;
+  }
+}
+
+.hero-slider__button {
+  position: absolute;
+  z-index: 2;
+  top: auto;
+  bottom: 60px;
+  width: 40px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.hero-slider__prev {
+  right: 100px;
+  margin-right: 20px;
+
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: 2;
+    content: '';
+  }
+
+  &::before {
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    right: 0;
+    background-color: $white-main-shade;
+    transform: translateY(-50%);
+    transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+  }
+
+  &::after {
+    width: 9px;
+    height: 9px;
+    top: 50%;
+    transform: translateX(10px) translateY(-50%) rotate(45deg);
+    border-bottom: 2px solid $white-main-shade;
+    border-left: 2px solid $white-main-shade;
+    transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+  }
+
+  &:hover {
+
+    &::before {
+      width: 100%;
+    }
+
+    &::after {
+      transform: translateX(0px) translateY(-50%) rotate(45deg);
+    }
+  }
+}
+
+.hero-slider__next {
+  right: 50px;
+
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: 1;
+    content: '';
+  }
+
+  &::before {
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    left: 0;
+    background-color: $white-main-shade;
+    transform: translateY(-50%);
+    transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+  }
+
+  &::after {
+    width: 9px;
+    height: 9px;
+    top: 50%;
+    transform: translateX(20px) translateY(-50%) rotate(45deg);
+    border-top: 2px solid $white-main-shade;
+    border-right: 2px solid $white-main-shade;
+    transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+  }
+
+  &:hover {
+
+    &::before {
+      width: 100%;
+    }
+
+    &::after {
+      transform: translateX(30px) translateY(-50%) rotate(45deg);
+    }
   }
 }

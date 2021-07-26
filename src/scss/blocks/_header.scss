@@ -1,7 +1,7 @@
 .header {
   position: relative;
   margin-bottom: 100px;
-  background-color: rgba($black-color, 0.75);
+  background-color: rgba($black-color, 0.6);
   border-bottom: 1px solid rgba($light-red-grey, 0.45);
 
   &::before {
@@ -33,7 +33,7 @@
   line-height: 120%;
   letter-spacing: 1px;
   word-spacing: 1px;
-  color: rgba(#ffffff, .75);
+  color: $white-main-shade;
   text-transform: uppercase;
 }
 
@@ -157,19 +157,19 @@
   width: 40px;
   height: 40px;
   margin-right: 20px;
-  fill: rgba(#ffffff, .75);
+  fill: $white-half-shade;
 }
 
 .header__mail-appeal {
   grid-column: 2 / -1;
   grid-row: 1 / 2;
-  font-family: "Forum-Regular", Helvetica, Arial, sans-serif;
+  color: $white-half-shade;
 }
 
 .header__mail-address {
-  font-family: "OldStandardTT-Bold", Helvetica, Arial, sans-serif;
   grid-column: 2 / -1;
   grid-row: 2 / -1;
+  color: $white-main-shade;
 }
 
 .header__burger {
@@ -185,7 +185,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: rgba($white-color, .75);
+    background-color: $white-main-shade;
     border-radius: 2px;
     transition: all 0.35s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
