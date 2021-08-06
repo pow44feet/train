@@ -43,6 +43,7 @@ headerLink.forEach((item, index) => {
 const swiper = new SwiperCore('.swiper-container', {
   // Optional parameters
   loop: true,
+  speed: 400,
 
   // If we need pagination
   pagination: {

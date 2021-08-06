@@ -1,8 +1,29 @@
 .button {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    color: $white-color;
-    border: none;
-    background-color: transparent;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white-color;
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+
+  &--square {
+    padding: 20px 30px;
+    max-width: 200px;
+    min-height: 50px;
+    letter-spacing: 2px;
+  }
+
+  &--gray {
+    color: rgba($white-color, .7);
+    border: 1px solid rgba($white-color, .8);
+
+    &:hover {
+      color: rgba($white-color, 1);
+      border: 1px solid rgba($white-color, .1);
+    }
+  }
 }
