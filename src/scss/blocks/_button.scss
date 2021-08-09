@@ -8,22 +8,23 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+  transition: color, border .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
 
   &--square {
     padding: 20px 30px;
     max-width: 200px;
+    width: 100%;
     min-height: 50px;
     letter-spacing: 2px;
   }
 
   &--gray {
-    color: rgba($white-color, .7);
-    border: 1px solid rgba($white-color, .8);
+    color: rgba($white-color, .6);
+    border: 1px solid rgba($white-color, .6);
 
     &:hover {
-      color: rgba($white-color, 1);
-      border: 1px solid rgba($white-color, .1);
+      color: rgba($white-color, 9);
+      border: 1px solid rgba($white-color, .9);
     }
   }
 }

@@ -34,27 +34,81 @@
   top: 19%;
   left: calc(50px + 8%);
   max-width: 630px;
+  transform: translateY(50px);
+  opacity: 0;
   padding: 35px;
   padding-bottom: 40px;
   padding-left: 40px;
   background-color: rgba(0,0,0,.5);
+  transition: .3s linear;
+  transition-delay: .2s;
 }
 
 .hero-slider__title {
+  overflow: hidden;
   margin: 0;
   margin-bottom: 30px;
-  font-family: 'Fregat__bold', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  font-size: 46px;
-  color: rgba($white-color, .87);
+
+  & span {
+    position: relative;
+    display: inline-block;
+    transform: translateY(100%);
+    font-family: 'Fregat__bold', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 46px;
+    color: rgba($white-color, .87);
+  }
 }
 
 .hero-slider__text {
+  overflow: hidden;
   margin: 0;
   margin-bottom: 50px;
-  font-size: 20px;
-  line-height: 130%;
-  color: rgba($white-color, .9);
+
+  & span {
+    position: relative;
+    display: inline-block;
+    transform: translateY(100%);
+    font-size: 20px;
+    line-height: 130%;
+    color: rgba($white-color, .9);
+  }
+}
+
+.hero-slider__show-more-wrapper {
+  overflow: hidden;
+}
+
+.hero-slider__show-more {
+  position: relative;
+  display: inline-flex;
+  transform: translateY(110%);
+}
+
+.hero-slider__block-appear > * {
+  transition: .7s cubic-bezier(.17, .85, .438, .99);
+  transition-delay: calc(.15s * var(--index) + 0.5s);
+}
+
+.hero-slider .swiper-slide-active {
+
+  .hero-slider__preview {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .hero-slider__block-appear {
+
+    & > * {
+      transform: translateY(0);
+    }
+
+    & > .hero-slider__show-more {
+      transition: color .25s cubic-bezier(0.858, 0.01, 0.068, 0.99) 0s,
+                  border .25s cubic-bezier(0.858, 0.01, 0.068, 0.99) 0s,
+                  transform .7s cubic-bezier(.17, .85, .438, .99) calc(.15s * var(--index) + 0.5s);
+    }
+  }
 }
 
 .hero-slider .hero-slider__pagination {
@@ -196,5 +250,131 @@
     &::after {
       transform: translateX(30px) translateY(-50%) rotate(45deg);
     }
+  }
+}
+
+@media (max-width: 799.98px) {
+
+  .hero-slider .swiper-slide-active {
+
+    .hero-slider__preview {
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 590px;
+      width: 100%;
+    }
+  }
+
+  .hero-slider__title {
+    margin-bottom: 26px;
+
+    span {
+      font-size: 40px;
+    }
+  }
+
+  .hero-slider__text {
+    margin-bottom: 44px;
+
+    span {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+
+  .hero-slider__slide::after {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .hero-slider__preview {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .hero-slider .hero-slider__pagination {
+    top: auto;
+    bottom: 65px;
+    left: auto;
+    right: 50px;
+    width: 90px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+
+  .hero-slider .swiper-pagination-bullets .swiper-pagination-bullet {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 699.98px) {
+  .header__mail {
+    display: none;
+  }
+}
+
+@media (max-width: 649.98px) {
+  .hero-slider .swiper-slide-active .hero-slider__preview {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 599.98px) {
+  .hero-slider__title {
+    margin-bottom: 22px;
+
+    span {
+      font-size: 36px;
+    }
+  }
+
+  .hero-slider__text {
+    margin-bottom: 40px;
+
+    span {
+      font-size: 17px;
+    }
+  }
+}
+
+@media (max-width: 549.98px) {
+  .hero-slider__slide.swiper-slide {
+    max-width: 100%;
+  }
+
+  .hero-slider .swiper-slide-active .hero-slider__preview {
+    max-width: 100%;
+  }
+
+  .hero-slider__preview {
+    left: 0;
+    width: 100%;
+    padding: 50px 25px;
+  }
+}
+
+@media (max-width: 479.98px) {
+
+  .hero-slider__preview {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-slider__title {
+    margin-bottom: 24px;
+
+    span {
+      font-size: 32px;
+    }
+  }
+}
+
+@media (max-width: 359.98px) {
+  .hero-slider__title span {
+    font-size: 30px;
+  }
+
+  .hero-slider .hero-slider__pagination {
+    display: none;
   }
 }
