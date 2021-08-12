@@ -90,6 +90,10 @@
   transition-delay: calc(.15s * var(--index) + 0.5s);
 }
 
+.hero-slider__wrapper {
+  transition: .5s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+}
+
 .hero-slider .swiper-slide-active {
 
   .hero-slider__preview {
