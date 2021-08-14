@@ -14,3 +14,8 @@
     padding: 0;
     list-style: none;
 }
+
+@mixin font-main {
+  font-family: $font-main;
+  font-weight: 400;
+}
