@@ -12,7 +12,6 @@
 
 .products__item {
     flex: 0 1 50%;
-    //padding: 0 20px;
     height: 70vh;
 }
 
@@ -92,4 +91,11 @@
     line-height: 120%;
     color: $white-color;
     transition: .4s cubic-bezier(.17, .85, .438, .99);
+}
+
+@media (max-width: 1199.98px) {
+
+  .products__item {
+    height: 60vh;
+  }
 }
