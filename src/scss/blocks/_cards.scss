@@ -1,0 +1,105 @@
+.cards__title {
+  margin-bottom: 60px;
+}
+
+.cards__list {
+  @include list-reset;
+  display: flex;
+  margin: 0 -20px;
+}
+
+.cards__item {
+  flex: 0 1 50%;
+  max-width: 50%;
+  padding: 0 20px;
+}
+
+.cards__inner {
+  background-color: $white-color;
+}
+
+.cards__top {
+  margin-bottom: 20px;
+}
+
+.cards__slider {
+  max-width: 100%;
+  width: 100%;
+  min-height: 400px;
+}
+
+.cards__slide {
+  width: 100% !important;
+}
+
+.cards__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cards__body {
+  padding: 25px;
+  padding-top: 0;
+}
+
+.cards__card-actions {
+  @include list-reset;
+  display: flex;
+  align-items: center;
+}
+
+.cards__card-item {
+
+  & label,
+  & span,
+  & input {
+    display: flex;
+    align-items: center;
+    @include font-main;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &--media {
+    margin-right: auto;
+  }
+}
+
+.cards__media {
+  position: relative;
+  padding-left: 37px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 510 510' style='enable-background:new 0 0 510 510;' xml:space='preserve'%3E%3Cg%3E%3Cg id='camera-alt'%3E%3Ccircle cx='255' cy='280.5' r='81.6'/%3E%3Cpath d='M178.5,25.5l-45.9,51H51c-28.05,0-51,22.95-51,51v306c0,28.05,22.95,51,51,51h408c28.05,0,51-22.95,51-51v-306 c0-28.05-22.95-51-51-51h-81.6l-45.9-51H178.5z M255,408c-71.4,0-127.5-56.1-127.5-127.5c0-71.4,56.1-127.5,127.5-127.5 c71.4,0,127.5,56.1,127.5,127.5C382.5,351.9,326.4,408,255,408z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  }
+}
+
+.cards__compare-input {
+  position: relative;
+  width: 0;
+  margin-right: 32px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 510 510' style='enable-background:new 0 0 510 510;' xml:space='preserve'%3E%3Cg%3E%3Cg id='add-circle'%3E%3Cpath d='M255,0C114.75,0,0,114.75,0,255s114.75,255,255,255s255-114.75,255-255S395.25,0,255,0z M382.5,280.5h-102v102h-51v-102 h-102v-51h102v-102h51v102h102V280.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}

@@ -40,7 +40,7 @@ headerLink.forEach((item, index) => {
     });
 });
 
-const swiper = new SwiperCore('.swiper-container', {
+const swiperHero = new SwiperCore('.hero-slider', {
   // Optional parameters
   loop: true,
   speed: 400,
@@ -55,5 +55,23 @@ const swiper = new SwiperCore('.swiper-container', {
   navigation: {
     nextEl: '.hero-slider__next',
     prevEl: '.hero-slider__prev',
+  },
+});
+
+const swiperCards = new SwiperCore('.cards__slider', {
+  // Optional parameters
+  loop: true,
+  speed: 400,
+
+  /*
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },*/
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.cards__arrow--next',
+    prevEl: '.cards__arrow--prev',
   },
 });

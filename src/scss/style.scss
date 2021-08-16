@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import "vars";
-@import "colors";
 @import "mixins";
 @import "fonts";
+@import "vars";
+@import "colors";
 @import "reset";
 @import "vendor";
 @import "blocks/visually-hidden";
@@ -13,4 +13,5 @@
 @import "blocks/header";
 @import "blocks/hero-slider";
 @import "blocks/products";
+@import "blocks/cards";
 @import "blocks/footer";
