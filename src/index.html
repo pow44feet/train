@@ -327,30 +327,50 @@
                       </div>
                       <button class="cards__arrow cards__arrow--prev"></button>
                       <button class="cards__arrow cards__arrow--next"></button>
-                    </div>
-                    <div class="cards__body">
                       <ul class="cards__card-actions">
-                        <li class="cards__card-item cards__card-item--media">
-                          <span class="cards__media">
-                            21
-                          </span>
+                        <li class="cards__card-item cards__card-item--images">
+                          <a class="cards__link cards__images" aria-label="Открыть галерею">
+                            <svg class="cards__svg" width="20" height="20">
+                              <use xlink:href='images/sprite.svg#camera'></use>
+                            </svg>
+                            <span class="cards__item-desc">
+                              5 Фотографий
+                            </span>
+                          </a>
                         </li>
                         <li class="cards__card-item cards__card-item--compare">
-                          <label class="cards__compare">
-                            <input class="cards__compare-input" type="checkbox" aria-hidden="true">
-                            Сравнить
-                          </label>
+                          <a class="cards__link cards__compare">
+                            <svg class="cards__svg" width="20" height="20">
+                              <use xlink:href='images/sprite.svg#plus'></use>
+                            </svg>
+                            <span class="cards__item-desc">
+                              Сравнить
+                            </span> 
+                          </a>
                         </li>
                         <li class="cards__card-item cards__card-item--like">
-                          <label class="cards__like">
-                            Сохранить
-                            <input class="visually-hidden" type="checkbox" aria-hidden="true">
-                          </label>
+                          <a class="cards__link cards__like">
+                            <svg class="cards__svg" width="20" height="20">
+                              <use xlink:href='images/sprite.svg#like'></use>
+                            </svg>
+                            <span class="cards__item-desc">
+                              Сохранить
+                            </span>
+                          </a>
                         </li>
                         <li class="cards__card-item cards__card-item--share">
-
+                          <a class="cards__link cards__like">
+                            <svg class="cards__svg" width="20" height="20">
+                              <use xlink:href='images/sprite.svg#share'></use>
+                            </svg>
+                            <span class="cards__item-desc">
+                              Поделиться
+                            </span>
+                          </a>
                         </li>
                       </ul>
+                    </div>
+                    <div class="cards__body">
                       <div class="cards__info">
                         <a class="cards__name" href="">
                           <h3>
