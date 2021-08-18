@@ -27,7 +27,7 @@
 .cards__slider {
   max-width: 100%;
   width: 100%;
-  min-height: 400px;
+  min-height: 500px;
 }
 
 .cards__slide {
@@ -257,4 +257,40 @@
 
 .cards__button {
   transition: background-color .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+}
+
+@media (max-width: 1599.98px) {
+
+  .cards__slider {
+    min-height: 430px;
+  }
+}
+
+@media (max-width: 1499.98px) {
+
+  .cards__slider {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 1399.98px) {
+
+  .cards__slider {
+    min-height: 370px;
+  }
+}
+
+@media (max-width: 1299.98px) {
+
+  .cards__slider {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+
+  .cards__slider {
+    min-height: 320px;
+  }
+
 }
