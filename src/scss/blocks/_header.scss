@@ -195,7 +195,7 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      animation: topLineFromCrossToLine 1s forwards, topLineAppearsFromMiddle 1s forwards 1s;
+      animation: topLineFromCrossToLine 1s forwards, topLineAppearsFromMiddle .7s forwards 1s;
     }
 
     &:nth-child(2) {
@@ -209,7 +209,7 @@
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      animation: bottomLineAppears 1s forwards, bottomLineAppearsFromMiddle 1s forwards 1s;
+      animation: bottomLineAppears 1s forwards, bottomLineAppearsFromMiddle .7s forwards 1s;
     }
   }
 }

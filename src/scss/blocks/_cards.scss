@@ -12,6 +12,7 @@
   flex: 0 1 50%;
   max-width: 50%;
   padding: 0 20px;
+  margin-bottom: 30px;
 }
 
 .cards__inner {
@@ -20,7 +21,7 @@
 
 .cards__top {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .cards__slider {
@@ -63,6 +64,11 @@
 
 .cards__card-item:last-child {
   margin-bottom: 0;
+}
+
+.cards__svg-wrapper {
+  padding: 5px;
+  background-color: #fff;
 }
 
 .cards__svg {
@@ -112,3 +118,102 @@
   padding-top: 0;
 }
 
+.cards__info {
+  margin-bottom: 30px;
+}
+
+.cards__name {
+  margin-bottom: 20px;
+  display: inline-block;
+
+  & h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 29px;
+    line-height: 120%;
+    letter-spacing: 1px;
+    color: $dark-grey;
+  }
+}
+
+.cards__desc {
+  margin: 0;
+  margin-bottom: 25px;
+  font-family: $font-secondary;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: .4px;
+  line-height: 130%;
+  color: $dark-blue-grey;
+}
+
+.cards__spec-title {
+  display: none;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: .3px;
+}
+
+.cards__spec-list {
+  @include list-reset;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cards__spec-item {
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 5px;
+  padding-left: 16px;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: .2px;
+  line-height: 26px;
+  color: $light-red-grey;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 4px;
+    height: 4px;
+    background-color: $light-red-grey;
+    border-radius: 50%;
+  }
+}
+
+.cards__actions {
+  @include list-reset;
+  display: flex;
+  align-items: center;
+}
+
+.cards__actions-item {
+  margin-right: 20px;
+
+  &--price {
+    margin-right: auto;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.cards__price {
+  font-family: $font-main;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: .3px;
+  color: $dark-grey;
+}
+
+.cards__button {
+  transition: background-color .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+}

@@ -19,12 +19,34 @@
   }
 
   &--gray {
-    color: rgba($white-color, .6);
-    border: 1px solid rgba($white-color, .6);
+    color: $light-red-grey;
+    border: 1px solid $light-red-grey;
 
     &:hover {
       color: rgba($white-color, 9);
       border: 1px solid rgba($white-color, .9);
+    }
+  }
+
+  &--gray-black {
+    color: $light-red-grey;
+    border: 1px solid $light-red-grey;
+
+    &:hover {
+      color: $black-color;
+      border: 1px solid $black-color;
+    }
+  }
+
+  &--black-fill {
+    color: rgba($white-color, 1);
+    background-color: $dark-grey;
+    border: 1px solid rgba($dark-grey, 1);
+
+    &:hover {
+      color: rgba($dark-grey, 1);
+      background-color: $white-color;
+      border: 1px solid rgba($dark-grey, 1);
     }
   }
 }
