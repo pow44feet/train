@@ -31,10 +31,15 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba($black-color, .5);
+        background-image: linear-gradient(to bottom, rgba($black-color, .5), rgba($black-color, .5));
+        transition: .3s cubic-bezier(.17, .85, .438, .99);
     }
 
     &:hover {
+
+        &::after {
+            background-image: linear-gradient(to bottom, rgba($black-color, .1) 0%, rgba($black-color, .1) 50%, rgba($black-color, .7) 65%, rgba($black-color, .7) 100%);
+        }
 
         & .products__info {
             transform: translateY(0);
@@ -67,7 +72,6 @@
 .products__category {
     display: inline-block;
     margin-bottom: 20px;
-    font-family: 'Fregat__bold', Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 16px;
     color: $white-color;
@@ -76,7 +80,6 @@
 .products__name {
     margin: 0;
     margin-bottom: 20px;
-    font-family: 'Fregat__regular', Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 30px;
     color: $white-color;
@@ -85,10 +88,10 @@
 .products__desc {
     opacity: 0;
     margin: 0;
-    font-family: 'Fregat__regular', Helvetica, Arial, sans-serif;
+    font-family: $font-secondary;
     font-weight: 400;
     font-size: 14px;
-    line-height: 120%;
+    line-height: 125%;
     color: $white-color;
     transition: .4s cubic-bezier(.17, .85, .438, .99);
 }
