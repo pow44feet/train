@@ -102,3 +102,11 @@
     height: 60vh;
   }
 }
+
+
+@media (max-width: 849.98px) {
+
+  .products__item {
+    flex: 0 1 100%;
+  }
+}

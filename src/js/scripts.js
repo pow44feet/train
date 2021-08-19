@@ -65,19 +65,13 @@ const swiperCards = new SwiperCore('.cards__slider', {
   loop: true,
   speed: 400,
 
-  /*
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true
-  },*/
-
   // Navigation arrows
   navigation: {
     nextEl: '.cards__arrow--next',
     prevEl: '.cards__arrow--prev',
   },
 });
-
+/*
 window.onload = () => {
   let innerWidth = window.innerWidth;
   if (innerWidth < 1200) cardsDescCompress();
@@ -98,3 +92,4 @@ function cardsDescCompress() {
     lines: 3,
   });
 }
+*/
