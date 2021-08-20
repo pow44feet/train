@@ -327,7 +327,7 @@
                       </div>
                       <button class="cards__arrow cards__arrow--prev"></button>
                       <button class="cards__arrow cards__arrow--next"></button>
-                      <ul class="cards__card-actions">
+                      <!--<ul class="cards__card-actions">
                         <li class="cards__card-item cards__card-item--images">
                           <a class="cards__link cards__images" aria-label="Открыть галерею">
                             <svg class="cards__svg" width="20" height="20">
@@ -345,7 +345,7 @@
                             </svg>
                             <span class="cards__item-desc">
                               Сравнить
-                            </span> 
+                            </span>
                           </a>
                         </li>
                         <li class="cards__card-item cards__card-item--like">
@@ -368,9 +368,53 @@
                             </span>
                           </a>
                         </li>
-                      </ul>
+                      </ul>-->
                     </div>
                     <div class="cards__body">
+                      <div class="cards__card-actions-wrapper">
+                        <ul class="cards__card-actions">
+                          <li class="cards__card-item cards__card-item--images">
+                            <a class="cards__link cards__link--images" aria-label="Открыть галерею">
+                              <svg class="cards__svg" width="20" height="20">
+                                <use xlink:href='images/sprite.svg#camera'></use>
+                              </svg>
+                              <span class="cards__item-desc">
+                                5 Фото
+                              </span>
+                            </a>
+                          </li>
+                          <li class="cards__card-item cards__card-item--compare">
+                            <a class="cards__link cards__link--compare">
+                              <svg class="cards__svg" width="20" height="20">
+                                <use xlink:href='images/sprite.svg#plus'></use>
+                              </svg>
+                              <span class="cards__item-desc">
+                                Сравнить
+                              </span>
+                            </a>
+                          </li>
+                          <li class="cards__card-item cards__card-item--like">
+                            <a class="cards__link cards__link--like">
+                              <svg class="cards__svg" width="20" height="20">
+                                <use xlink:href='images/sprite.svg#like'></use>
+                              </svg>
+                              <span class="cards__item-desc">
+                                Сохранить
+                              </span>
+                            </a>
+                          </li>
+                          <li class="cards__card-item cards__card-item--share">
+                            <a class="cards__link cards__link--share">
+                              <svg class="cards__svg" width="20" height="20">
+                                <use xlink:href='images/sprite.svg#share'></use>
+                              </svg>
+                              <span class="cards__item-desc">
+                                Поделиться
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
                       <div class="cards__info">
                         <a class="cards__name" href="">
                           <h3>
@@ -378,13 +422,13 @@
                           </h3>
                         </a>
                         <p class="cards__desc">
-                          Австрийский производитель KTM выпустил свой самый мелкокубатурный байк - Duke 125. Это первый мотоцикл объемом 125 см<sup>3</sup> с двигателем жидкостного охлаждения. Этот байк является самым доступным предложением компании, но также и самым дорогим мотоциклом в сегменте 125 см<sup>3</sup>. Прием заказов на Duke 125 уже начат.
+                          Австрийский производитель KTM выпустил свой самый мелкокубатурный байк - Duke 125. Это первый мотоцикл объемом 125 куб.см. с двигателем жидкостного охлаждения. Этот байк является самым доступным предложением компании, но также и самым дорогим мотоциклом в сегменте 125 куб.см. Прием заказов на Duke 125 уже начат.
                         </p>
                         <div class="cards__spec">
                           <h4 class="cards__spec-title">
                             Спецификация
                           </h4>
-                          <ul class="cards__spec">
+                          <ul class="cards__spec-list">
                             <li class="cards__spec-item">
                               Двигатель 124 см<sup>3</sup> / 15 л.с. / Инжектор
                             </li>
@@ -409,14 +453,14 @@
                             300 000&#8381;
                           </span>
                         </li>
-                        <li class="cards__actions-item cards__actions-item--buy">
-                          <a class="cards__button button button--square button--gray">
-                            Купить
+                        <li class="cards__actions-item cards__actions-item--details">
+                          <a class="cards__button button button--square button--gray-black">
+                            Подробнее
                           </a>
                         </li>
-                        <li class="cards__actions-item cards__actions-item--details">
-                          <a class="cards__button button button--square button--gray">
-                            Подробнее
+                        <li class="cards__actions-item cards__actions-item--buy">
+                          <a class="cards__button button button--square button--black-fill">
+                            Купить
                           </a>
                         </li>
                       </ul>
@@ -437,7 +481,7 @@
 
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="js/scripts.js"></script>
 
 </body>

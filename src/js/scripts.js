@@ -5,6 +5,8 @@ work(); */
 import SwiperCore, { Navigation, Pagination } from '../../node_modules/swiper/core';
 SwiperCore.use([Navigation, Pagination]);
 
+import '../../node_modules/ellipsis.js/ellipsis.min.js';
+
 
 let header = document.querySelector(".header");
 let headerItem = document.querySelectorAll(".header__item");
@@ -63,15 +65,31 @@ const swiperCards = new SwiperCore('.cards__slider', {
   loop: true,
   speed: 400,
 
-  /*
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true
-  },*/
-
   // Navigation arrows
   navigation: {
     nextEl: '.cards__arrow--next',
     prevEl: '.cards__arrow--prev',
   },
 });
+/*
+window.onload = () => {
+  let innerWidth = window.innerWidth;
+  if (innerWidth < 1200) cardsDescCompress();
+
+  window.addEventListener("resize", () => {
+    let innerWidth = window.innerWidth;
+    if (innerWidth > 1200) {
+      return;
+    } else {
+      cardsDescCompress()
+    }
+  });
+}
+
+function cardsDescCompress() {
+  Ellipsis({
+    className: '.cards__desc',
+    lines: 3,
+  });
+}
+*/
