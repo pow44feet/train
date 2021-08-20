@@ -1,11 +1,5 @@
-/* import {work} from "./func";
-
-work(); */
-
 import SwiperCore, { Navigation, Pagination } from '../../node_modules/swiper/core';
 SwiperCore.use([Navigation, Pagination]);
-
-import '../../node_modules/ellipsis.js/ellipsis.min.js';
 
 
 let header = document.querySelector(".header");
