@@ -71,18 +71,21 @@
 
 .products__category {
     display: inline-block;
-    margin-bottom: 20px;
-    font-weight: 700;
+    margin-bottom: 10px;
+    font-weight: 500;
     font-size: 16px;
     color: $white-color;
+    letter-spacing: .5px;
+    text-transform: lowercase;
 }
 
 .products__name {
     margin: 0;
     margin-bottom: 20px;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 30px;
     color: $white-color;
+    letter-spacing: 1px;
 }
 
 .products__desc {
@@ -90,7 +93,7 @@
     margin: 0;
     font-family: $font-secondary;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 125%;
     color: $white-color;
     transition: .4s cubic-bezier(.17, .85, .438, .99);
