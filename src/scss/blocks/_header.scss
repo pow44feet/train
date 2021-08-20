@@ -1,10 +1,11 @@
 .header {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
   min-height: 90px;
+  padding: 20px 0;
 
   &::before {
     content: "";
@@ -26,9 +27,13 @@
   align-items: center;
 }
 
-.header__logo {
+.header__logo-wrapper {
   margin-right: auto;
-  padding: 20px 0;
+  overflow: hidden;
+}
+
+.header__logo {
+  display: inline-block;
   font-weight: 900;
   font-size: 42px;
   font-style: italic;
@@ -37,7 +42,24 @@
   word-spacing: 1px;
   color: $white-main-shade;
   text-transform: uppercase;
+  transition: .3s cubic-bezier(0.858, 0.01, 0.068, 0.99);
 }
+
+@keyframes header-logo-appear {
+  0% {
+    transform: translateY(100%);
+  }
+  90% {
+    transform: translateY(100%);
+  }
+  100% {
+    transition: 1s cubic-bezier(0.225, 1, 0.316, 0.99);
+    //transition-delay: 1s;
+    transform: translateY(0%);
+    z-index: 3;
+  }
+}
+
 
 .header__nav {
   position: fixed;
@@ -338,11 +360,16 @@
   }
 
   .header__logo {
-    z-index: 2;
-    color: $light-red-grey;
+    position: relative;
+    color: $white-color;
+
+    animation: header-logo-appear .8s forwards .8s;
+    //transition-timing-function: cubic-bezier(0.858, 0.01, 0.068, 0.99);
+
   }
 
   & .header__nav {
+    z-index: 2;
     right: 0;
     transition-delay: 0.13s;
   }
@@ -353,7 +380,7 @@
 
   & .header__burger {
     & span {
-      background-color: $light-red-grey;
+      background-color: $white-color;
 
       &:nth-child(1) {
         animation: lineDisappear 0.35s forwards 0.35s alternate,
@@ -426,28 +453,35 @@
   }
 }
 
+@media (max-width: 599.98px) {
+
+  .header__logo {
+    font-size: 32px;
+    letter-spacing: 3px;
+  }
+
+  .header__burger {
+    height: 28px;
+  }
+}
+
 @media (max-width:479.98px) {
   .header__logo {
-    font-size: 36px;
+    font-size: 28px;
+    letter-spacing: 2px;
   }
   .header__bg {
     height: 70%;
   }
 }
-
+/*
 .swiper-container {
   width: 600px;
   height: 300px;
 }
-
-@media (max-width: 419.98px) {
+*/
+@media (max-width: 379.98px) {
   .header__logo {
-    font-size: 32px;
-  }
-}
-
-@media (max-width: 359.98px) {
-  .header__logo {
-    font-size: 30px;
+    font-size: 26px;
   }
 }

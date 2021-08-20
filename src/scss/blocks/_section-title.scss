@@ -5,4 +5,24 @@
     letter-spacing: 7px;
     text-align: center;
     text-transform: uppercase;
+
+    @media (max-width: 649.98px) {
+
+      font-size: 42px;
+    }
+
+    @media (max-width: 549.98px) {
+
+      font-size: 36px;
+    }
+
+    @media (max-width: 439.98px) {
+
+      font-size: 32px;
+    }
+
+    @media (max-width: 379.98px) {
+
+      font-size: 28px;
+    }
 }

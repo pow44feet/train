@@ -1,4 +1,5 @@
 .cards__title {
+  margin: 0;
   margin-bottom: 60px;
 }
 
@@ -27,7 +28,7 @@
 .cards__slider {
   max-width: 100%;
   width: 100%;
-  min-height: 500px;
+  max-height: 500px;
 }
 
 .cards__slide {
@@ -39,79 +40,20 @@
   height: 100%;
   object-fit: cover;
 }
-/*
-.cards__card-actions {
-  @include list-reset;
+
+.cards__arrow {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 2;
-  width: auto;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-}
+  top: 50%;
+  transform: translateY(-50%);
 
-.cards__card-item {
-  margin-right: 20px;
-}
+  &--prev {
+    left: 10px;
+  }
 
-.cards__link {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.cards__card-item {
-  margin-bottom: 20px;
-}
-
-.cards__card-item:last-child {
-  margin-bottom: 0;
-}
-
-.cards__svg {
-  fill: $dark-grey;
-
-  &:hover {
-
-    & + .cards__item-desc {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(0);
-    }
+  &--next {
+    right: 10px;
   }
 }
-
-.cards__item-desc {
-  opacity: 0;
-  visibility: hidden;
-  position: relative;
-  transform: translateX(-15px);
-  margin-left: 15px;
-  padding: 5px 10px;
-  font-size: 14px;
-  color: $white-color;
-  line-height: 100%;
-  background-color: $dark-grey;
-  border-radius: 5px;
-  transition: .2s cubic-bezier(.17, .85, .438, .99);
-
-  &::before {
-    position: absolute;
-    content: '';
-    top: 50%;
-    transform: translateY(-50%);
-    left: -9px;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 6px 10px 6px 0;
-    border-color: transparent $dark-grey transparent transparent;
-    background-color: transparent;
-  }
-}
-*/
 
 .cards__card-actions {
   @include list-reset;
@@ -219,8 +161,7 @@
   &::before {
     content: '';
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 11px;
     left: 0;
     width: 4px;
     height: 4px;
@@ -262,28 +203,28 @@
 @media (max-width: 1599.98px) {
 
   .cards__slider {
-    min-height: 430px;
+    max-height: 430px;
   }
 }
 
 @media (max-width: 1499.98px) {
 
   .cards__slider {
-    min-height: 400px;
+    max-height: 400px;
   }
 }
 
 @media (max-width: 1399.98px) {
 
   .cards__slider {
-    min-height: 370px;
+    max-height: 370px;
   }
 }
 
 @media (max-width: 1299.98px) {
 
   .cards__slider {
-    min-height: 340px;
+    max-height: 340px;
   }
 }
 
@@ -295,12 +236,13 @@
   }
 
   .cards__slider {
-    min-height: 400px;
+    max-height: 400px;
   }
 
   .cards__item {
     flex: 0 1 700px;
     max-width: 700px;
+    width: 100%;
   }
 }
 
@@ -312,6 +254,10 @@
 }
 
 @media (max-width: 649.98px) {
+
+  .cards__slider {
+    max-height: 350px;
+  }
 
   .cards__actions {
     flex-wrap: wrap;
@@ -333,3 +279,126 @@
   }
 }
 
+@media (max-width: 549.98px) {
+
+  .cards__slider {
+    max-height: 300px;
+  }
+
+  .cards__card-actions {
+    justify-content: normal;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    /* для плавного скролла на IOS */
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $black-color;
+    }
+  }
+
+  .cards__card-item {
+    flex: 0 0 85px;
+  }
+
+  .cards__name {
+    margin-bottom: 15px;
+  }
+
+  .cards__name h3 {
+    font-size: 26px;
+  }
+
+  .cards__item-desc {
+    padding: 5px 2px;
+  }
+}
+
+@media (max-width: 479.98px) {
+
+  .cards__img {
+    min-height: 280px;
+  }
+
+  .cards__card-item {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 15px;
+    }
+  }
+
+  .cards__spec-item {
+    font-size: 14px;
+    line-height: 24px;
+
+    &::before {
+      top: 10px;
+    }
+  }
+
+  .cards__actions-item {
+    margin-right: 0;
+    text-align: center;
+
+    & > * {
+      margin: 0 auto;
+    }
+
+    &--details {
+      flex: 0 1 100%;
+      margin-bottom: 20px;
+    }
+
+    &--buy {
+      flex: 0 1 100%;
+    }
+  }
+}
+
+@media (max-width: 439.98px) {
+
+  .cards__card-item {
+    flex: 1 0 80px;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 419.98px) {
+
+  .cards__name h3 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 399.98px) {
+
+  .cards__img {
+    min-height: 260px;
+  }
+
+  .cards__body {
+    padding: 20px;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 359.98px) {
+
+  .cards__img {
+    min-height: 240px;
+  }
+
+  .cards__body {
+    padding: 15px;
+    padding-top: 0;
+  }
+
+  .cards__name h3 {
+    font-size: 22px;
+  }
+}
