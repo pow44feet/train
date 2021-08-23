@@ -31,14 +31,14 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: linear-gradient(to bottom, rgba($black-color, .5), rgba($black-color, .5));
+        background-image: linear-gradient(to bottom, rgba($mine-shaft, .5), rgba($mine-shaft, .5));
         transition: .3s cubic-bezier(.17, .85, .438, .99);
     }
 
     &:hover {
 
         &::after {
-            background-image: linear-gradient(to bottom, rgba($black-color, .1) 0%, rgba($black-color, .1) 50%, rgba($black-color, .7) 65%, rgba($black-color, .7) 100%);
+            background-image: linear-gradient(to bottom, rgba($mine-shaft, .2) 0%, rgba($mine-shaft, .2) 50%, rgba($mine-shaft, .8) 65%, rgba($mine-shaft, .8) 100%);
         }
 
         & .products__info {
@@ -74,7 +74,7 @@
     margin-bottom: 10px;
     font-weight: 600;
     font-size: 18px;
-    color: $white-color;
+    color: $mercury;
     letter-spacing: .5px;
     text-transform: lowercase;
 }
@@ -84,7 +84,7 @@
     margin-bottom: 20px;
     font-weight: 700;
     font-size: 32px;
-    color: $white-color;
+    color: $silver;
     letter-spacing: 1px;
 }
 
@@ -95,7 +95,7 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 125%;
-  color: $white-color;
+  color: $silver;
   transition: .4s cubic-bezier(.17, .85, .438, .99);
 }
 

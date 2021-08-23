@@ -61,7 +61,7 @@
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid rgba($light-red-grey, .5);
+  border-bottom: 1px solid $mercury;
 }
 
 .cards__card-item {
@@ -81,14 +81,14 @@
 
 .cards__svg {
   margin-bottom: 3px;
-  fill: $dark-grey;
+  fill: $mine-shaft-lighter;
 }
 
 .cards__item-desc {
   position: relative;
   padding: 5px 10px;
   font-size: 14px;
-  color: $dark-grey;
+  color: $mine-shaft-lighter;
   line-height: 110%;
   text-align: center;
   transition: .2s cubic-bezier(.17, .85, .438, .99);
@@ -102,7 +102,7 @@
 .cards__info {
   padding-bottom: 15px;
   margin-bottom: 20px;
-  border-bottom: 1px solid rgba($light-red-grey, .5);
+  border-bottom: 1px solid $mercury;
 }
 
 .cards__name {
@@ -115,7 +115,7 @@
     font-size: 29px;
     line-height: 120%;
     letter-spacing: 1px;
-    color: $dark-grey;
+    color: $mine-shaft-lighter;
   }
 }
 
@@ -127,7 +127,7 @@
   font-size: 16px;
   letter-spacing: .4px;
   line-height: 130%;
-  color: $dark-blue-grey;
+  color: $mine-shaft-lighter;
 }
 
 .cards__spec-title {
@@ -156,7 +156,7 @@
   font-size: 16px;
   letter-spacing: .2px;
   line-height: 26px;
-  color: $light-red-grey;
+  color: $gray;
 
   &::before {
     content: '';
@@ -165,7 +165,7 @@
     left: 0;
     width: 4px;
     height: 4px;
-    background-color: $light-red-grey;
+    background-color: $gray;
     border-radius: 50%;
   }
 }
@@ -193,7 +193,7 @@
   font-weight: 600;
   font-size: 22px;
   letter-spacing: .3px;
-  color: $dark-grey;
+  color: $mine-shaft-lighter;
 }
 
 .cards__button {
@@ -297,7 +297,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: $black-color;
+      background-color: $mercury;
     }
   }
 

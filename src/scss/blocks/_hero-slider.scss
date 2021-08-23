@@ -39,7 +39,7 @@
   padding: 35px;
   padding-bottom: 40px;
   padding-left: 40px;
-  background-color: rgba($mine-shaft, .6);
+  background-color: rgba($mine-shaft, .7);
   transition: .3s linear;
   transition-delay: .2s;
 }
@@ -56,7 +56,8 @@
     font-weight: 700;
     font-size: 46px;
     letter-spacing: 1.5px;
-    color: rgba($white-color, .95);
+    line-height: 130%;
+    color: $mercury;
   }
 }
 
@@ -73,7 +74,7 @@
     font-weight: 300;
     font-size: 20px;
     line-height: 130%;
-    color: rgba($white-color, .9);
+    color: $silver;
   }
 }
 
@@ -131,14 +132,14 @@
 
 .hero-slider .swiper-pagination-bullets .swiper-pagination-bullet {
   position: relative;
-  opacity: .38;
+  //opacity: .38;
   display: block;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   margin: 0;
   margin-bottom: 22px;
-  background-color: $white-main-shade;
+  background-color: $mercury;
 
   &::after {
     position: absolute;
@@ -148,7 +149,7 @@
     transform: translate(-50%, -50%);
     width: 6px;
     height: 6px;
-    border: 1px solid $white-main-shade;
+    border: 1px solid $gray;
     border-radius: 50%;
     background-color: transparent;
     transition: .4s cubic-bezier(0.858, 0.01, 0.068, 0.99);
@@ -156,11 +157,12 @@
 }
 
 .hero-slider .swiper-pagination-bullets .swiper-pagination-bullet-active {
-  opacity: 1;
+  //opacity: 1;
 
   &::after {
     width: 18px;
     height: 18px;
+    border: 1px solid $mercury;
   }
 }
 
@@ -190,7 +192,7 @@
     width: 30px;
     height: 2px;
     right: 0;
-    background-color: $white-main-shade;
+    background-color: $mercury;
     transform: translateY(-50%);
     transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
   }
@@ -200,8 +202,8 @@
     height: 9px;
     top: 50%;
     transform: translateX(10px) translateY(-50%) rotate(45deg);
-    border-bottom: 2px solid $white-main-shade;
-    border-left: 2px solid $white-main-shade;
+    border-bottom: 2px solid $mercury;
+    border-left: 2px solid $mercury;
     transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
   }
 
@@ -232,7 +234,7 @@
     width: 30px;
     height: 2px;
     left: 0;
-    background-color: $white-main-shade;
+    background-color: $mercury;
     transform: translateY(-50%);
     transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
   }
@@ -242,8 +244,8 @@
     height: 9px;
     top: 50%;
     transform: translateX(20px) translateY(-50%) rotate(45deg);
-    border-top: 2px solid $white-main-shade;
-    border-right: 2px solid $white-main-shade;
+    border-top: 2px solid $mercury;
+    border-right: 2px solid $mercury;
     transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
   }
 
@@ -359,7 +361,7 @@
 @media (max-width: 479.98px) {
 
   .hero-slider__preview {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba($mine-shaft, 0.85);
   }
 
   .hero-slider__title {

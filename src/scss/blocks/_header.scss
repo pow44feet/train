@@ -15,7 +15,7 @@
     right: -100%;
     width: 100%;
     height: 100%;
-    background-color: rgba($dark-blue-grey, 0.7);
+    background-color: rgba($mine-shaft, 0.85);
     mix-blend-mode: difference;
     transition: 1s cubic-bezier(0.858, 0.01, 0.068, 0.99);
     transition-delay: 0.83s;
@@ -40,7 +40,7 @@
   line-height: 120%;
   letter-spacing: 5px;
   word-spacing: 1px;
-  color: $white-main-shade;
+  color: $mercury;
   text-transform: uppercase;
   transition: .3s cubic-bezier(0.858, 0.01, 0.068, 0.99);
 }
@@ -181,19 +181,19 @@
   width: 40px;
   height: 40px;
   margin-right: 20px;
-  fill: $white-half-shade;
+  fill: $mercury;
 }
 
 .header__mail-appeal {
   grid-column: 2 / -1;
   grid-row: 1 / 2;
-  color: $white-half-shade;
+  color: $mercury;
 }
 
 .header__mail-address {
   grid-column: 2 / -1;
   grid-row: 2 / -1;
-  color: $white-main-shade;
+  color: $mercury;
 }
 
 .header__burger {
@@ -209,7 +209,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: $white-main-shade;
+    background-color: $mercury;
     //border-radius: 2px;
     transition: all 0.35s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
@@ -361,8 +361,6 @@
 
   .header__logo {
     position: relative;
-    color: $white-color;
-
     animation: header-logo-appear .8s forwards .8s;
     //transition-timing-function: cubic-bezier(0.858, 0.01, 0.068, 0.99);
 
