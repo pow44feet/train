@@ -17,6 +17,9 @@
 }
 
 .cards__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background-color: $white-color;
 }
 
@@ -28,6 +31,7 @@
 .cards__slider {
   max-width: 100%;
   width: 100%;
+  min-height: 500px;
   max-height: 500px;
 }
 
@@ -95,11 +99,15 @@
 }
 
 .cards__body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: 25px;
   padding-top: 0;
 }
 
 .cards__info {
+  flex: 1 0 auto;
   padding-bottom: 15px;
   margin-bottom: 20px;
   border-bottom: 1px solid $mercury;
@@ -203,28 +211,28 @@
 @media (max-width: 1599.98px) {
 
   .cards__slider {
-    max-height: 430px;
+    min-height: 430px;
   }
 }
 
 @media (max-width: 1499.98px) {
 
   .cards__slider {
-    max-height: 400px;
+    min-height: 400px;
   }
 }
 
 @media (max-width: 1399.98px) {
 
   .cards__slider {
-    max-height: 370px;
+    min-height: 370px;
   }
 }
 
 @media (max-width: 1299.98px) {
 
   .cards__slider {
-    max-height: 340px;
+    min-height: 340px;
   }
 }
 
@@ -236,7 +244,7 @@
   }
 
   .cards__slider {
-    max-height: 400px;
+    min-height: 400px;
   }
 
   .cards__item {
@@ -256,7 +264,7 @@
 @media (max-width: 649.98px) {
 
   .cards__slider {
-    max-height: 350px;
+    min-height: 350px;
   }
 
   .cards__actions {
@@ -282,7 +290,7 @@
 @media (max-width: 549.98px) {
 
   .cards__slider {
-    max-height: 300px;
+    min-height: 300px;
   }
 
   .cards__card-actions {
