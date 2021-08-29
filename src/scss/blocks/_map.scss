@@ -38,62 +38,79 @@
   z-index: 1;
   top: 165px;
   left: 650px;
+  transform: translate(-50%, -50%);
 }
 
 .map__point {
-  position: absolute;
+  position: relative;
   //transform: translate(-50%, -50%);
-  z-index: 1;
   display: block;
-  width: 26px;
-  height: 26px;
-  background-color: rgba($white-color, 1);
+  width: 14px;
+  height: 14px;
+  background-color: $cerulian-blue;
   border-radius: 50%;
   transition: .5s cubic-bezier(0.225, 1, 0.316, 0.99);
 
   &::before {
     content: '';
     position: absolute;
-    z-index: 2;
+    z-index: -1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 14px;
-    height: 14px;
-    background-color: $cerulian-blue;
+    width: 32px;
+    height: 32px;
+    background-color: $white-color;
     border-radius: 50%;
-    transition: .5s cubic-bezier(0.225, 1, 0.316, 0.99);
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    width: 28px;
-    height: 28px;
-    background-color: rgba($white-color, 0);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
     transition: .5s cubic-bezier(0.225, 1, 0.316, 0.99);
   }
 
   &:hover {
-    background-color: rgba($white-color, 0);
+    width: 16px;
+    height: 16px;
 
     &::before {
-      width: 12px;
-      height: 12px;
-    }
-
-    &::after {
-      background-color: rgba($white-color, 1);
-      transform: translate(-50%, -50%) scale(1);
+      width: 26px;
+      height: 26px;
     }
   }
 }
 
 .map__info {
-  display: none;
+  position: absolute;
+  top: -10px;
+  left: -140px;
+  width: 100px;
+  height: auto;
+  padding: 5px 10px 15px;
+  text-align: left;
+  background-color: $white-color;
+
 }
+
+.map__image-icon {
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.map__category {
+  margin: 0;
+  margin-bottom: 5px;
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: .1px;
+  line-height: 110%;
+  color: $mine-shaft;
+}
+
+.map__model {
+  margin: 0;
+  font-family: $font-main;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: .2px;
+  color: $mine-shaft-lighter;
+}
+
