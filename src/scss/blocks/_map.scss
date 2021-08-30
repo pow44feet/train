@@ -4,7 +4,7 @@
 }
 
 .map__body {
-  background-color: $mercury;
+  background: linear-gradient(to right, rgba($mercury, .9), rgba($mercury, .6), rgba($mercury, .9)), url("/images/map/1.jpg") center 100% / cover no-repeat;
 }
 
 .map__navigation {
@@ -40,7 +40,7 @@
   left: 650px;
   transform: translate(-50%, -50%);
 }
-
+/*
 .map__point {
   position: relative;
   //transform: translate(-50%, -50%);
@@ -77,13 +77,112 @@
 }
 
 .map__info {
-  position: absolute;
-  top: -10px;
-  left: -140px;
-  width: 100px;
+   position: absolute;
+   top: -10px;
+   left: -140px;
+   width: 100px;
+   height: auto;
+   padding: 5px 10px 15px;
+   text-align: left;
+   background-color: $white-color;
+
+   &::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      right: -13.5px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 9px 0 9px 13px;
+      border-color: transparent transparent transparent $white-color;
+   }
+}
+
+.map__image-icon {
+  max-width: 80px;
   height: auto;
-  padding: 5px 10px 15px;
-  text-align: left;
+  margin-bottom: 10px;
+}
+
+.map__category {
+  margin: 0;
+  margin-bottom: 5px;
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: .1px;
+  line-height: 110%;
+  color: $mine-shaft;
+}
+
+.map__model {
+  margin: 0;
+  font-family: $font-main;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: .2px;
+  color: $mine-shaft-lighter;
+}
+*/
+
+.map__point {
+  position: relative;
+  display: block;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background-color: $cerulian-blue;
+  border-radius: 50%;
+  border: none;
+  //border: 4px solid $cerulian-blue;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 42px;
+    height: 42px;
+    background-color: rgba($silver, .7);
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: '✚';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    //background-color: $mine-shaft-lighter;
+    font-size: 20px;
+    line-height: 22px;
+    color: $mercury;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    width: 180px;
+    height: auto;
+    border-radius: 0;
+
+    & .map__info {
+      transform: scale(1);
+    }
+
+  }
+
+}
+
+.map__info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
   background-color: $white-color;
 
 }
@@ -113,4 +212,3 @@
   letter-spacing: .2px;
   color: $mine-shaft-lighter;
 }
-
