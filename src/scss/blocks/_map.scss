@@ -4,7 +4,25 @@
 }
 
 .map__body {
+  padding: 10px 0 40px;
   background: linear-gradient(to right, rgba($mercury, .9), rgba($mercury, .6), rgba($mercury, .9)), url("/images/map/1.jpg") center 100% / cover no-repeat;
+
+  &--cover {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(6px);
+      backdrop-filter: blur(6px);
+      background-color: rgba($gray, .5);
+    }
+  }
 }
 
 .map__navigation {
@@ -21,7 +39,6 @@
 
 .map__img {
   max-width: 100%;
-  border: 1px solid red;
 }
 
 .map__list {
@@ -36,7 +53,6 @@
 .map__item {
   position: absolute;
   z-index: 1;
-
   transform: translate(-50%, -50%);
 
   &--grips {
@@ -127,50 +143,53 @@
     }
   }
 
-  &:hover {
-
-    &::after {
-      transform: translate(-50%, -50%) rotate(-90deg);
-    }
-
-    & .map__info {
-      transform: translateY(-50%) translateX(0);
-      opacity: 1;
-      visibility: visible;
-      transition-duration: .6s;
-    }
-  }
-
-  &--left-rotate {
-
-    &::after {
-      transform: translate(-50%, -50%) rotate(180deg);
-    }
-
-    & .map__info {
-      top: 50%;
-      left: auto;
-      right: 50px;
-      transform: translateY(-50%) translateX(10px);
-
-      &::before {
-        left: auto;
-        right: -9px;
-        border-width: 9px 0px 9px 10px;
-        border-color: transparent transparent transparent $white-color;
-      }
-    }
+  @media (min-width: 991.98px) {
 
     &:hover {
 
       &::after {
-        transform: translate(-50%, -50%) rotate(90deg);
+        transform: translate(-50%, -50%) rotate(-90deg);
       }
 
       & .map__info {
         transform: translateY(-50%) translateX(0);
+        opacity: 1;
+        visibility: visible;
+        transition-duration: .6s;
+      }
+    }
+
+    &--left-rotate {
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(180deg);
       }
 
+      & .map__info {
+        top: 50%;
+        left: auto;
+        right: 50px;
+        transform: translateY(-50%) translateX(10px);
+
+        &::before {
+          left: auto;
+          right: -9px;
+          border-width: 9px 0px 9px 10px;
+          border-color: transparent transparent transparent $white-color;
+        }
+      }
+
+      &:hover {
+
+        &::after {
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        & .map__info {
+          transform: translateY(-50%) translateX(0);
+        }
+
+      }
     }
   }
 }
@@ -223,4 +242,128 @@
   font-size: 13px;
   letter-spacing: .2px;
   color: $mine-shaft-lighter;
+}
+
+.map__button {
+  margin: 0 auto;
+}
+
+@media (max-width: 1199.98px) {
+
+  .map__body {
+    background-size: 180%;
+  }
+
+  .map__elements {
+    max-width: 800px;
+  }
+
+  .map__img {
+    max-width: 800px;
+  }
+
+  .map__item {
+
+    &--grips {
+      top: 125px;
+      left: 505px;
+    }
+
+    &--brakes {
+      top: 317px;
+      left: 715px;
+    }
+
+    &--tires {
+      top: 380px;
+      left: 610px;
+    }
+
+    &--body {
+      top: 255px;
+      left: 490px;
+    }
+
+    &--engine {
+      top: 315px;
+      left: 370px;
+    }
+
+    &--exhaust {
+      top: 255px;
+      left: 120px;
+    }
+
+    &--seat {
+      top: 170px;
+      left: 302px;
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+
+  .map__elements {
+    max-width: 600px;
+  }
+
+  .map__img {
+    max-width: 600px;
+  }
+
+  .map__item {
+
+    &--grips {
+      top: 95px;
+      left: 380px;
+    }
+
+    &--brakes {
+      top: 227px;
+      left: 530px;
+    }
+
+    &--tires {
+      top: 288px;
+      left: 460px;
+    }
+
+    &--body {
+      top: 195px;
+      left: 365px;
+    }
+
+    &--engine {
+      top: 230px;
+      left: 280px;
+    }
+
+    &--exhaust {
+      top: 205px;
+      left: 105px;
+    }
+
+    &--seat {
+      top: 137px;
+      left: 220px;
+    }
+
+    &--active {
+
+      & .map__info {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 200px;
+        min-height: 150px;
+        padding: 10px 20px 25px;
+        display: flex;
+        flex-direction: column;
+        opacity: 1;
+        visibility: visible;
+      }
+
+    }
+  }
 }

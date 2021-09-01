@@ -9,6 +9,9 @@ let headerBgImage = document.querySelector(".header__bg-image");
 let nav = document.querySelector(".header__nav");
 let burger = document.querySelector(".header__burger");
 
+let mapBody = document.querySelector(".map__body");
+let mapButton = document.querySelectorAll(".map__item");
+
 
 burger.addEventListener("click", burgerMenu);
 
@@ -87,3 +90,22 @@ function cardsDescCompress() {
   });
 }
 */
+
+window.onload = () => {
+  let innerWidth = window.innerWidth;
+  if (innerWidth < 992) mapButtonAction();
+
+  window.addEventListener("resize", () => {
+    let innerWidth = window.innerWidth;
+    if (innerWidth < 992) mapButtonAction();
+  });
+}
+
+function mapButtonAction() {
+  mapButton.forEach(elem => {
+    elem.addEventListener("click", () => {
+      mapBody.classList.add("map__body--cover");
+      elem.classList.add("map__item--active");
+    });
+  });
+}
