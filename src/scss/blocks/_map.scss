@@ -13,7 +13,7 @@
     &::before {
       content: '';
       position: absolute;
-      z-index: 100;
+      z-index: 1;
       top: 0;
       left: 0;
       width: 100%;
@@ -210,11 +210,9 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-
     width: 0;
     height: 0;
     border-style: solid;
-
   }
 }
 
@@ -242,6 +240,21 @@
   font-size: 13px;
   letter-spacing: .2px;
   color: $mine-shaft-lighter;
+}
+
+.map__close {
+  z-index: 1;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  display: none;
+  width: 40px;
+  height: 40px;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 40px;
+  text-align: center;
+  color: $white-color;
 }
 
 .map__button {
@@ -303,6 +316,21 @@
 
 @media (max-width: 991.98px) {
 
+  .map__body {
+
+    &--cover {
+
+      & .map__item {
+        opacity: 0;
+        pointer-events: none;
+
+        &--active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   .map__elements {
     max-width: 600px;
   }
@@ -312,6 +340,7 @@
   }
 
   .map__item {
+    //transition-delay: .3s;
 
     &--grips {
       top: 95px;
@@ -349,21 +378,70 @@
     }
 
     &--active {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      //transition-delay: .3s;
+
+      & .map__point {
+        background-color: transparent;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
 
       & .map__info {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        min-width: 200px;
-        min-height: 150px;
-        padding: 10px 20px 25px;
-        display: flex;
-        flex-direction: column;
         opacity: 1;
         visibility: visible;
       }
 
+      & .map__close {
+        display: flex;
+        pointer-events: auto;
+      }
     }
+  }
+
+  .map__info {
+    z-index: 1;
+    position: absolute;
+    min-width: 200px;
+    min-height: 150px;
+    padding: 20px 20px 25px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .map__point .map__info {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition-delay: .3s;
+  }
+
+  .map__image-icon {
+    margin-right: 0;
+    margin-bottom: 20px;
+    max-width: 100px;
+  }
+
+  .map__category {
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  .map__model {
+    font-size: 15px;
+    line-height: 140%;
   }
 }

@@ -38,6 +38,16 @@
     }
   }
 
+  &--white {
+    color: $mine-shaft;
+    background-color: $white-color;
+    border: 1px solid $white-color;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
   &--black-fill {
     color: $mercury;
     background-color: $mine-shaft;

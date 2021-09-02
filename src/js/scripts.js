@@ -11,21 +11,10 @@ let burger = document.querySelector(".header__burger");
 
 let mapBody = document.querySelector(".map__body");
 let mapButton = document.querySelectorAll(".map__item");
+let mapClose = document.querySelectorAll(".map__close");
 
 
 burger.addEventListener("click", burgerMenu);
-
-function burgerMenu() {
-    if (header.classList.contains("header--active")) {
-        header.classList.remove("header--active");
-        nav.classList.remove("nav--active");
-        burger.classList.remove("burger--active");
-    } else {
-        header.classList.add("header--active");
-        nav.classList.add("nav--active");
-        burger.classList.add("burger--active");
-    }
-}
 
 headerLink.forEach((item, index) => {
     item.addEventListener("mouseenter", (e) => {
@@ -68,6 +57,55 @@ const swiperCards = new SwiperCore('.cards__slider', {
     prevEl: '.cards__arrow--prev',
   },
 });
+
+window.onload = () => {
+  let innerWidth = window.innerWidth;
+  if (innerWidth < 992) mapButtonAction();
+
+  window.addEventListener("resize", () => {
+    let innerWidth = window.innerWidth;
+    if (innerWidth < 992) mapButtonAction();
+  });
+}
+
+function burgerMenu() {
+  if (header.classList.contains("header--active")) {
+      header.classList.remove("header--active");
+      nav.classList.remove("nav--active");
+      burger.classList.remove("burger--active");
+  } else {
+      header.classList.add("header--active");
+      nav.classList.add("nav--active");
+      burger.classList.add("burger--active");
+  }
+}
+
+function mapButtonAction() {
+  mapButton.forEach(elem => {
+    elem.addEventListener("click", () => {
+      setTimeout(() => {
+        elem.classList.toggle("map__item--active");
+        mapBody.classList.toggle("map__body--cover");
+      }, 300);
+    });
+  });
+}
+/*
+function mapInfoToggle() {
+
+}
+*/
+/*
+mapClose.forEach(elem => {
+  elem.addEventListener("click", () => {
+    let closest = elem.closest(".map__item");
+    console.log(closest);
+    closest.classList.remove("map__item--active");
+  });
+});
+*/
+
+
 /*
 window.onload = () => {
   let innerWidth = window.innerWidth;
@@ -90,22 +128,3 @@ function cardsDescCompress() {
   });
 }
 */
-
-window.onload = () => {
-  let innerWidth = window.innerWidth;
-  if (innerWidth < 992) mapButtonAction();
-
-  window.addEventListener("resize", () => {
-    let innerWidth = window.innerWidth;
-    if (innerWidth < 992) mapButtonAction();
-  });
-}
-
-function mapButtonAction() {
-  mapButton.forEach(elem => {
-    elem.addEventListener("click", () => {
-      mapBody.classList.add("map__body--cover");
-      elem.classList.add("map__item--active");
-    });
-  });
-}
