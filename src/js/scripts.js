@@ -11,6 +11,7 @@ let burger = document.querySelector(".header__burger");
 
 let mapBody = document.querySelector(".map__body");
 let mapButton = document.querySelectorAll(".map__item");
+let mapComponent = document.querySelectorAll(".map__component");
 let mapClose = document.querySelectorAll(".map__close");
 
 
@@ -26,6 +27,10 @@ headerLink.forEach((item, index) => {
         }
 
     });
+});
+
+mapClose.forEach(item => {
+  item.addEventListener("click", hideInfo);
 });
 
 const swiperHero = new SwiperCore('.hero-slider', {
@@ -60,11 +65,11 @@ const swiperCards = new SwiperCore('.cards__slider', {
 
 window.onload = () => {
   let innerWidth = window.innerWidth;
-  if (innerWidth < 992) mapButtonAction();
+  if (innerWidth < 992) showInfo();
 
   window.addEventListener("resize", () => {
     let innerWidth = window.innerWidth;
-    if (innerWidth < 992) mapButtonAction();
+    if (innerWidth < 992) showInfo();
   });
 }
 
@@ -80,16 +85,40 @@ function burgerMenu() {
   }
 }
 
-function mapButtonAction() {
+function showInfo() {
   mapButton.forEach(elem => {
     elem.addEventListener("click", () => {
-      setTimeout(() => {
-        elem.classList.toggle("map__item--active");
-        mapBody.classList.toggle("map__body--cover");
-      }, 300);
+      bodyCover();
+      let activeElem = elem.dataset.part;
+
+      for (let i = 0; i < mapComponent.length; i++) {
+        let infoWindow = mapComponent[i].dataset.info;
+
+        if (activeElem == infoWindow) {
+          mapComponent[i].classList.add("map__component--active");
+        }
+      }
     });
   });
 }
+
+function hideInfo() {
+  mapBody.classList.remove("map__body--cover");
+  mapComponent.forEach(item => {
+    item.classList.remove("map__component--active");
+  });
+}
+
+function bodyCover() {
+  if (!(mapBody.classList.contains("map__body--cover"))) {
+    mapBody.classList.add("map__body--cover");
+  } else {
+    mapBody.classList.remove("map__body--cover");
+  }
+}
+
+
+
 /*
 function mapInfoToggle() {
 
