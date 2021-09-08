@@ -68,6 +68,7 @@
   position: absolute;
   z-index: 1;
   transform: translate(-50%, -50%);
+  transition: .3s cubic-bezier(.17, .85, .438, .99);
 
   &--grips {
     top: 165px;
