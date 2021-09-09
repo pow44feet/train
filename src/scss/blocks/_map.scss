@@ -525,3 +525,25 @@
     line-height: 140%;
   }
 }
+
+@media (max-width: 699.98px) {
+
+  .map__navigation {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .map__elements {
+    max-width: 400px;
+  }
+
+  .map__img {
+    max-width: 400px;
+  }
+
+  .map__list {
+    display: none;
+  }
+}
