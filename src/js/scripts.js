@@ -63,6 +63,22 @@ const swiperCards = new SwiperCore('.cards__slider', {
   },
 });
 
+const mapSlider = new SwiperCore(".map__slider", {
+  loop: false,
+  autoHeight: true,
+  pagination: {
+
+    el: '.map__pagination',
+    type: 'bullets',
+    bulletClass: 'map__dot',
+    clickable: true,
+    clickableClass: 'map__paginatio--clickable',
+    bulletActiveClass: 'map__dot--active',
+    bulletElement: 'button',
+
+  },
+});
+
 window.onload = () => {
   let innerWidth = window.innerWidth;
   if (innerWidth < 992) showInfo();
