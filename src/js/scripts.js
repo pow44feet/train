@@ -14,6 +14,8 @@ let mapButton = document.querySelectorAll(".map__item");
 let mapComponent = document.querySelectorAll(".map__component");
 let mapClose = document.querySelectorAll(".map__close");
 
+let historySlideTitle = document.querySelectorAll(".history__slide-title");
+
 
 burger.addEventListener("click", burgerMenu);
 
@@ -32,6 +34,14 @@ headerLink.forEach((item, index) => {
 mapClose.forEach(item => {
   item.addEventListener("click", hideInfo);
 });
+
+
+let years = [];
+historySlideTitle.forEach(item => {
+  let string = item.innerText;
+  years.push(string.substring(0, 4))
+});
+console.log(years);
 
 const swiperHero = new SwiperCore('.hero-slider', {
   // Optional parameters
@@ -76,6 +86,26 @@ const mapSlider = new SwiperCore(".map__slider", {
     bulletActiveClass: 'map__dot--active',
     bulletElement: 'button',
 
+  },
+});
+
+const historySlider = new SwiperCore(".history__images-slider", {
+  loop: false,
+  autoHeight: true,
+  pagination: {
+    el: '.history__timeline',
+    //type: 'custom',
+    dynamicBullets: true,
+    dynamicMainBullets: 7,
+    clickable: true,
+    clickableClass: 'history__timeline--clickable',
+    bulletClass: 'history__timestamp',
+    bulletActiveClass: 'history__timestamp--active',
+    bulletElement: 'button',
+    renderBullet: function (index, className) {
+      let year = document.querySelectorAll('.history__slide-title')[index].innerText.substring(0, 4);
+      return '<button class="' + className + '">' + year + '</button>';
+    },
   },
 });
 
