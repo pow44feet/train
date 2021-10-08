@@ -17,6 +17,40 @@ let mapClose = document.querySelectorAll(".map__close");
 let historySlideTitle = document.querySelectorAll(".history__slide-title");
 
 
+let hondaLineage = {
+  1946: "Model A",
+  1949: "Model D",
+  1951: "Dream E",
+  1953: "Benly J",
+  1958: "Super Cub",
+  1964: "3RC164",
+  1969: "CB750",
+  1972: "CR250 Elsinore",
+  1974: "Gold Wing GL1000",
+  1978: "NR500",
+  1986: "VFR750F Interceptor",
+  1993: "CBR900RR",
+  1995: "EXP-2",
+  2002: "RC211V",
+  2010: "Fury",
+  2013: "CBR500R",
+  2018: "Africa Twin",
+  2021: "Shadow Phantom",
+}
+
+let slideCollection = [];
+
+for (let key in hondaLineage) {
+   slideCollection.push(hondaLineage[key].toLowerCase().split(" ").join("-"));
+}
+
+let slideNames = [];
+
+for (let key in hondaLineage) {
+  slideNames.push(hondaLineage[key]);
+}
+console.log(slideNames);
+
 burger.addEventListener("click", burgerMenu);
 
 headerLink.forEach((item, index) => {
@@ -41,7 +75,7 @@ historySlideTitle.forEach(item => {
   let string = item.innerText;
   years.push(string.substring(0, 4))
 });
-console.log(years);
+
 
 const swiperHero = new SwiperCore('.hero-slider', {
   // Optional parameters
@@ -77,7 +111,6 @@ const mapSlider = new SwiperCore(".map__slider", {
   loop: false,
   autoHeight: true,
   pagination: {
-
     el: '.map__pagination',
     type: 'bullets',
     bulletClass: 'map__dot',
@@ -85,28 +118,53 @@ const mapSlider = new SwiperCore(".map__slider", {
     clickableClass: 'map__paginatio--clickable',
     bulletActiveClass: 'map__dot--active',
     bulletElement: 'button',
-
   },
 });
 
 const historySlider = new SwiperCore(".history__images-slider", {
   loop: false,
   autoHeight: true,
+  /*
   pagination: {
     el: '.history__timeline',
-    //type: 'custom',
+    type: 'bullets',
     dynamicBullets: true,
+    horizontalClass: 'history__timeline--horizontal',
     dynamicMainBullets: 7,
     clickable: true,
     clickableClass: 'history__timeline--clickable',
+    currentClass: 'history__timeline--current',
     bulletClass: 'history__timestamp',
     bulletActiveClass: 'history__timestamp--active',
     bulletElement: 'button',
     renderBullet: function (index, className) {
-      let year = document.querySelectorAll('.history__slide-title')[index].innerText.substring(0, 4);
-      return '<button class="' + className + '">' + year + '</button>';
+      return `<button class="${className}">${hondaLineage[index]}</button>`;
     },
   },
+  */
+  observeSlideChildren: true,
+  observeParents: true,
+  observer: true,
+  virtual: {
+    slides: (function () {
+      let slides = [];
+      for (let i = 0; i < 10; i++) {
+        slides.push(`<li class="history__slide swiper-slide">
+                      <div class="history__slide-image">
+                        <img src="images/history/${slideCollection[i]}.png" alt="">
+                      </div>
+                      <div class="history__slide-title">
+                        <p>
+                          ${hondaLineage[i]} ${slideNames[i]}
+                        </p>
+                      </div>
+                    </li>`);
+      }
+      console.log(slides);
+      return slides;
+    }()),
+  },
+
 });
 
 window.onload = () => {
@@ -165,41 +223,4 @@ function bodyCover() {
 
 
 
-/*
-function mapInfoToggle() {
-
-}
-*/
-/*
-mapClose.forEach(elem => {
-  elem.addEventListener("click", () => {
-    let closest = elem.closest(".map__item");
-    console.log(closest);
-    closest.classList.remove("map__item--active");
-  });
-});
-*/
-
-
-/*
-window.onload = () => {
-  let innerWidth = window.innerWidth;
-  if (innerWidth < 1200) cardsDescCompress();
-
-  window.addEventListener("resize", () => {
-    let innerWidth = window.innerWidth;
-    if (innerWidth > 1200) {
-      return;
-    } else {
-      cardsDescCompress()
-    }
-  });
-}
-
-function cardsDescCompress() {
-  Ellipsis({
-    className: '.cards__desc',
-    lines: 3,
-  });
-}
-*/
+console.log(slideCollection);
