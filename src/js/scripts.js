@@ -1,5 +1,5 @@
-import SwiperCore, { Navigation, Pagination } from '../../node_modules/swiper/core';
-SwiperCore.use([Navigation, Pagination]);
+import SwiperCore, { Navigation, Pagination, Virtual } from '../../node_modules/swiper/core';
+SwiperCore.use([Navigation, Pagination, Virtual]);
 
 
 let header = document.querySelector(".header");
@@ -39,17 +39,20 @@ let hondaLineage = {
 }
 
 let slideCollection = [];
-
 for (let key in hondaLineage) {
    slideCollection.push(hondaLineage[key].toLowerCase().split(" ").join("-"));
 }
 
 let slideNames = [];
-
 for (let key in hondaLineage) {
   slideNames.push(hondaLineage[key]);
 }
-console.log(slideNames);
+
+let bikesYears = [];
+for (let key in hondaLineage) {
+  bikesYears.push(key);
+}
+
 
 burger.addEventListener("click", burgerMenu);
 
@@ -124,13 +127,13 @@ const mapSlider = new SwiperCore(".map__slider", {
 const historySlider = new SwiperCore(".history__images-slider", {
   loop: false,
   autoHeight: true,
-  /*
+
   pagination: {
     el: '.history__timeline',
     type: 'bullets',
     dynamicBullets: true,
     horizontalClass: 'history__timeline--horizontal',
-    dynamicMainBullets: 7,
+    dynamicMainBullets: 1,
     clickable: true,
     clickableClass: 'history__timeline--clickable',
     currentClass: 'history__timeline--current',
@@ -138,31 +141,30 @@ const historySlider = new SwiperCore(".history__images-slider", {
     bulletActiveClass: 'history__timestamp--active',
     bulletElement: 'button',
     renderBullet: function (index, className) {
-      return `<button class="${className}">${hondaLineage[index]}</button>`;
+      return `<button class="${className}">${bikesYears[index]}</button>`;
     },
   },
-  */
+
   observeSlideChildren: true,
   observeParents: true,
   observer: true,
   virtual: {
     slides: (function () {
       let slides = [];
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < slideNames.length; i++) {
         slides.push(`<li class="history__slide swiper-slide">
                       <div class="history__slide-image">
                         <img src="images/history/${slideCollection[i]}.png" alt="">
                       </div>
                       <div class="history__slide-title">
                         <p>
-                          ${hondaLineage[i]} ${slideNames[i]}
+                          ${bikesYears[i]} ${slideNames[i]}
                         </p>
                       </div>
                     </li>`);
       }
-      console.log(slides);
       return slides;
-    }()),
+    })(),
   },
 
 });
