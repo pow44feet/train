@@ -1,0 +1,42 @@
+.history__title {
+  margin: 0;
+  margin-bottom: 50px;
+}
+
+.history__description {
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  font-family: $font-secondary;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: .2px;
+  line-height: 130%;
+  color: $mercury;
+  text-align: center;
+}
+
+.history__images {
+  position: relative;
+  margin: 0 70px;
+}
+
+.swiper-slide {
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.history__slide--prev,
+.history__slide--next {
+
+  .history__slide-image {
+    max-width: 30%;
+  }
+}
+
+.history__slide-image {
+  max-width: 100%;
+  transition: .5s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+}

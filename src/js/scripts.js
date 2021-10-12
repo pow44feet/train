@@ -127,6 +127,7 @@ const mapSlider = new SwiperCore(".map__slider", {
 const historySlider = new SwiperCore(".history__images-slider", {
   loop: false,
   autoHeight: true,
+  speed: 500,
 
   pagination: {
     el: '.history__timeline',
@@ -144,7 +145,6 @@ const historySlider = new SwiperCore(".history__images-slider", {
       return `<button class="${className}">${bikesYears[index]}</button>`;
     },
   },
-
   observeSlideChildren: true,
   observeParents: true,
   observer: true,
@@ -166,7 +166,12 @@ const historySlider = new SwiperCore(".history__images-slider", {
       return slides;
     })(),
   },
-
+  //slideClass: "history__slide",
+  slideActiveClass: "history__slide--active",
+  slideNextClass: "history__slide--next",
+  slidePrevClass: "history__slide--prev",
+  slidesPerView: 3,
+  centeredSlides: true,
 });
 
 window.onload = () => {
