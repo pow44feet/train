@@ -21,22 +21,20 @@
 }
 
 .swiper-slide {
-  height: 100% !important;
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: .2;
+  transform: scale(0.8);
 }
 
-.history__slide--prev,
-.history__slide--next {
-
-  .history__slide-image {
-    max-width: 30%;
-  }
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1.2);
 }
 
 .history__slide-image {
   max-width: 100%;
-  transition: .5s cubic-bezier(0.858, 0.01, 0.068, 0.99);
 }

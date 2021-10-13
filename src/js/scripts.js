@@ -128,6 +128,9 @@ const historySlider = new SwiperCore(".history__images-slider", {
   loop: false,
   autoHeight: true,
   speed: 500,
+  spaceBetween: 50,
+  slidesPerView: 2.5,
+  centeredSlides: true,
 
   pagination: {
     el: '.history__timeline',
@@ -152,7 +155,7 @@ const historySlider = new SwiperCore(".history__images-slider", {
     slides: (function () {
       let slides = [];
       for (let i = 0; i < slideNames.length; i++) {
-        slides.push(`<li class="history__slide swiper-slide">
+        slides.push(`<li class="history__slide">
                       <div class="history__slide-image">
                         <img src="images/history/${slideCollection[i]}.png" alt="">
                       </div>
@@ -167,11 +170,10 @@ const historySlider = new SwiperCore(".history__images-slider", {
     })(),
   },
   //slideClass: "history__slide",
-  slideActiveClass: "history__slide--active",
-  slideNextClass: "history__slide--next",
-  slidePrevClass: "history__slide--prev",
-  slidesPerView: 3,
-  centeredSlides: true,
+  //slideActiveClass: "history__slide--active",
+  //slideNextClass: "history__slide--next",
+  //slidePrevClass: "history__slide--prev",
+
 });
 
 window.onload = () => {
