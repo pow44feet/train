@@ -137,7 +137,7 @@ const historySlider = new SwiperCore(".history__images-slider", {
     type: 'bullets',
     dynamicBullets: true,
     horizontalClass: 'history__timeline--horizontal',
-    dynamicMainBullets: 1,
+    dynamicMainBullets: 2,
     clickable: true,
     clickableClass: 'history__timeline--clickable',
     currentClass: 'history__timeline--current',
@@ -151,6 +151,7 @@ const historySlider = new SwiperCore(".history__images-slider", {
   observeSlideChildren: true,
   observeParents: true,
   observer: true,
+  /*
   virtual: {
     slides: (function () {
       let slides = [];
@@ -169,10 +170,23 @@ const historySlider = new SwiperCore(".history__images-slider", {
       return slides;
     })(),
   },
-  //slideClass: "history__slide",
-  //slideActiveClass: "history__slide--active",
-  //slideNextClass: "history__slide--next",
-  //slidePrevClass: "history__slide--prev",
+  */
+  virtual: {
+    slides: slideCollection,
+    cache: true,
+    renderSlide: function(slide, index) {
+      slide = `<li class="history__slide swiper-slide">
+                <div class="history__slide-image">
+                  <img src="images/history/${slideCollection[index]}.png" alt="">
+                </div>
+                <p class="history__slide-title">
+                  ${bikesYears[index]} ${slideNames[index]}
+                </p>
+              </li>`;
+      return slide;
+    }
+  },
+
 
 });
 

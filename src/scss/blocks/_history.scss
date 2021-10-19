@@ -20,6 +20,10 @@
   margin: 0 70px;
 }
 
+.history__images-slider {
+  padding-bottom: 40px;
+}
+
 .swiper-slide {
   width: auto;
   display: flex;
@@ -28,13 +32,33 @@
   justify-content: center;
   opacity: .2;
   transform: scale(0.8);
+  transition-duration: .3s !important;
+  transition-timing-function: linear;
+}
+
+.history__slide-image {
+  margin-bottom: 30px;
+}
+
+.history__slide-title {
+  margin: 0;
+  font-family: $font-main;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: .7px;
+  color: $mercury;
 }
 
 .swiper-slide-active {
   opacity: 1;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .history__slide-image {
   max-width: 100%;
+}
+
+.history__timeline {
+  display: flex;
 }
