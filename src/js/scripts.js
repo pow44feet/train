@@ -132,45 +132,10 @@ const historySlider = new SwiperCore(".history__images-slider", {
   slidesPerView: 2.5,
   centeredSlides: true,
 
-  pagination: {
-    el: '.history__timeline',
-    type: 'bullets',
-    dynamicBullets: true,
-    horizontalClass: 'history__timeline--horizontal',
-    dynamicMainBullets: 2,
-    clickable: true,
-    clickableClass: 'history__timeline--clickable',
-    currentClass: 'history__timeline--current',
-    bulletClass: 'history__timestamp',
-    bulletActiveClass: 'history__timestamp--active',
-    bulletElement: 'button',
-    renderBullet: function (index, className) {
-      return `<button class="${className}">${bikesYears[index]}</button>`;
-    },
-  },
   observeSlideChildren: true,
   observeParents: true,
   observer: true,
-  /*
-  virtual: {
-    slides: (function () {
-      let slides = [];
-      for (let i = 0; i < slideNames.length; i++) {
-        slides.push(`<li class="history__slide">
-                      <div class="history__slide-image">
-                        <img src="images/history/${slideCollection[i]}.png" alt="">
-                      </div>
-                      <div class="history__slide-title">
-                        <p>
-                          ${bikesYears[i]} ${slideNames[i]}
-                        </p>
-                      </div>
-                    </li>`);
-      }
-      return slides;
-    })(),
-  },
-  */
+
   virtual: {
     slides: slideCollection,
     cache: true,
@@ -186,9 +151,47 @@ const historySlider = new SwiperCore(".history__images-slider", {
       return slide;
     }
   },
-
-
 });
+
+const historyTimeline = new SwiperCore(".history__timeline-slider", {
+  loop: true,
+  speed: 500,
+  spaceBetween: 10,
+  slidesPerView: 'auto',
+  centeredSlides: true,
+  freeMode: true,
+  virtual: {
+    slides: slideCollection,
+    cache: true,
+    renderSlide: function (slide, index) {
+      console.log(bikesYears)
+      let currenStamp = bikesYears[index];
+      let nextStamp = bikesYears[index + 1];
+      console.log(nextStamp);
+      let stampRange = [];
+      for (let i = +currenStamp + +1; i < nextStamp; i++) {
+        let template = `
+        <span class="history__stamp-year">
+          ${i}
+        </span>
+        `;
+        stampRange.push(template);
+      }
+      let output = stampRange.join('');
+
+      slide = `<li class="history__stamp swiper-slide">
+                <span class="history__stamp-data">
+                  ${bikesYears[index]}
+                </span>
+                ${output}
+              </li>`;
+      return slide;
+    }
+  },
+});
+
+
+
 
 window.onload = () => {
   let innerWidth = window.innerWidth;
@@ -244,6 +247,3 @@ function bodyCover() {
   }
 }
 
-
-
-console.log(slideCollection);
