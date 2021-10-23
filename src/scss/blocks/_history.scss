@@ -24,7 +24,7 @@
   padding-bottom: 40px;
 }
 
-.swiper-slide {
+.history__images .swiper-slide {
   width: auto;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@
   color: $mercury;
 }
 
-.swiper-slide-active {
+.history__slide.swiper-slide-active {
   opacity: 1;
   transform: scale(1.1);
 }
@@ -70,11 +70,19 @@
 .history__stamp {
   display: flex;
   flex-direction: row;
+  width: auto !important;
+
+  &--target {
+    cursor: pointer;
+  }
+
+  & span {
+    display: block;
+    margin-right: 10px;
+  }
 }
 
-.history__timeline .swiper-slide {
-  width: auto !important;
-}
+
 /*
 .history__stamp-data {
   display: block;

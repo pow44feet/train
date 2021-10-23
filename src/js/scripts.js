@@ -1,5 +1,5 @@
-import SwiperCore, { Navigation, Pagination, Virtual } from '../../node_modules/swiper/core';
-SwiperCore.use([Navigation, Pagination, Virtual]);
+import SwiperCore, { Navigation, Pagination, Virtual, Controller } from '../../node_modules/swiper/core';
+SwiperCore.use([Navigation, Pagination, Virtual, Controller]);
 
 
 let header = document.querySelector(".header");
@@ -15,6 +15,8 @@ let mapComponent = document.querySelectorAll(".map__component");
 let mapClose = document.querySelectorAll(".map__close");
 
 let historySlideTitle = document.querySelectorAll(".history__slide-title");
+let historyImagesSlider = document.querySelector(".history__images-slider");
+let historyTimelineWrapper = document.querySelector(".history__timeline-wrapper");
 
 
 let hondaLineage = {
@@ -67,6 +69,8 @@ headerLink.forEach((item, index) => {
 
     });
 });
+
+
 
 mapClose.forEach(item => {
   item.addEventListener("click", hideInfo);
@@ -140,7 +144,7 @@ const historySlider = new SwiperCore(".history__images-slider", {
     slides: slideCollection,
     cache: true,
     renderSlide: function(slide, index) {
-      slide = `<li class="history__slide swiper-slide">
+      slide = `<li class="history__slide swiper-slide" data-slide="${bikesYears[index]}">
                 <div class="history__slide-image">
                   <img src="images/history/${slideCollection[index]}.png" alt="">
                 </div>
@@ -151,15 +155,53 @@ const historySlider = new SwiperCore(".history__images-slider", {
       return slide;
     }
   },
+
+  controller: {
+    by: 'container',
+  },
+  slideToClickedSlide: true,
 });
 
+function createSlide(target, inList) {
+  let slide = document.createElement("li");
+  slide.classList.add("history__stamp");
+  slide.classList.add("swiper-slide");
+  let slideSpan = document.createElement("span");
+  slideSpan.classList.add("history__date");
+  slideSpan.innerHTML = target;
+  slide.prepend(slideSpan);
+
+  if (inList != '' && inList != undefined) {
+    slide.classList.add("history__stamp--target");
+    slide.setAttribute("data-target", target);
+  }
+
+  historyTimelineWrapper.appendChild(slide);
+}
+
+for (let i = bikesYears[0]; i <= bikesYears[bikesYears.length - 1]; i++) {
+
+  i = String(i);
+
+  if (bikesYears.indexOf(i) != -1) {
+    createSlide(i, true);
+  } else {
+    createSlide(i);
+  }
+}
+
 const historyTimeline = new SwiperCore(".history__timeline-slider", {
-  loop: true,
+  loop: false,
   speed: 500,
-  spaceBetween: 10,
+  //spaceBetween: 10,
   slidesPerView: 'auto',
   centeredSlides: true,
   freeMode: true,
+  controller: {
+    by: 'container',
+  },
+  slideToClickedSlide: true,
+  /*
   virtual: {
     slides: slideCollection,
     cache: true,
@@ -188,7 +230,39 @@ const historyTimeline = new SwiperCore(".history__timeline-slider", {
       return slide;
     }
   },
+  */
 });
+
+historyTimeline.controller.control = historySlider;
+historySlider.controller.control = historyTimeline;
+
+
+historySlider.on("init", function () {
+  console.log(document.querySelector(".history__slide.swiper-slide-active"));
+});
+
+historySlider.on("slideChangeTransitionStart", function () {
+  console.log(document.querySelector(".history__slide.swiper-slide-active"));
+
+  let activeSlide = document.querySelector(".history__slide.swiper-slide-active");
+  let activeSlideYear = activeSlide.getAttribute("data-slide");
+  console.log(activeSlideYear);
+
+  let allYears = document.querySelectorAll(".history__stamp");
+  allYears.forEach(item => {
+    let activeThumb = item;
+    let activeThumbYear = activeThumb.getAttribute("data-target");
+
+    if (activeThumbYear == activeSlideYear) {
+      allYears.forEach(elem => {
+        elem.classList.remove("swiper-slide-active");
+      });
+
+      activeThumb.classList.add("swiper-slide-active");
+    }
+  })
+});
+
 
 
 
