@@ -19,6 +19,7 @@ let historyImagesSlider = document.querySelector(".history__images-slider");
 let historyTimelineWrapper = document.querySelector(".history__timeline-wrapper");
 
 
+
 let hondaLineage = {
   1946: "Model A",
   1949: "Model D",
@@ -237,30 +238,68 @@ historyTimeline.controller.control = historySlider;
 historySlider.controller.control = historyTimeline;
 
 
+
+/*
 historySlider.on("init", function () {
   console.log(document.querySelector(".history__slide.swiper-slide-active"));
 });
+*/
+
 
 historySlider.on("slideChangeTransitionStart", function () {
-  console.log(document.querySelector(".history__slide.swiper-slide-active"));
 
-  let activeSlide = document.querySelector(".history__slide.swiper-slide-active");
-  let activeSlideYear = activeSlide.getAttribute("data-slide");
-  console.log(activeSlideYear);
+   // Get the active-slide when slide is changing
+   let activeHistoryImage = document.querySelector(".history__slide.swiper-slide-active");
+   console.log(activeHistoryImage);
 
-  let allYears = document.querySelectorAll(".history__stamp");
-  allYears.forEach(item => {
-    let activeThumb = item;
-    let activeThumbYear = activeThumb.getAttribute("data-target");
+   // Get the active-slide data-slide attribute
+   let activeHistoryImageAttr = activeHistoryImage.getAttribute("data-slide");
+   console.log(activeHistoryImageAttr);
 
-    if (activeThumbYear == activeSlideYear) {
+   let historyTimestamp = document.querySelectorAll(".history__stamp");
+
+   // Get the cycle from timeline row
+   historyTimestamp.forEach(item => {
+      if (item.dataset.target == activeHistoryImageAttr) {
+         let activeTimestamp = item;
+
+         // Remove from any timeline slide active class
+         /*historyTimestamp.forEach(elem => {
+            elem.classList.remove("swiper-slide-active");
+         });*/
+
+         // Remove from any timeline slide prev class
+         historyTimestamp.forEach(elem => {
+            elem.classList.remove("swiper-slide-prev");
+         });
+
+         // Remove from any timeline slide next class
+         historyTimestamp.forEach(elem => {
+            elem.classList.remove("swiper-slide-next");
+         });
+
+         // Add active class to activeTimestamp, previous to previous and next to next
+         activeTimestamp.classList.add("swiper-slide-active");
+         activeTimestamp.previousElementSibling.classList.add("swiper-slide-prev");
+         activeTimestamp.nextElementSibling.classList.add("swiper-slide-next");
+      }
+   });
+
+   /*
+   let allYears = document.querySelectorAll(".history__stamp");
+   allYears.forEach(item => {
+      let activeThumb = item;
+      let activeThumbYear = activeThumb.getAttribute("data-target");
+
+      if (activeThumbYear == activeSlideYear) {
       allYears.forEach(elem => {
-        elem.classList.remove("swiper-slide-active");
+         elem.classList.remove("swiper-slide-active");
       });
 
       activeThumb.classList.add("swiper-slide-active");
-    }
-  })
+      }
+   })
+   */
 });
 
 
