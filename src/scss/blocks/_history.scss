@@ -61,6 +61,7 @@
 
 .history__timeline {
   display: flex;
+  margin: 0 70px;
 }
 
 .history__timeline-slider {
@@ -78,7 +79,6 @@
 
   & span {
     display: block;
-    margin-right: 10px;
   }
 }
 

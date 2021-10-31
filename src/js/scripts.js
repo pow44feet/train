@@ -86,17 +86,12 @@ historySlideTitle.forEach(item => {
 
 
 const swiperHero = new SwiperCore('.hero-slider', {
-  // Optional parameters
   loop: true,
   speed: 400,
-
-  // If we need pagination
   pagination: {
     el: '.swiper-pagination',
     clickable: true
   },
-
-  // Navigation arrows
   navigation: {
     nextEl: '.hero-slider__next',
     prevEl: '.hero-slider__prev',
@@ -136,11 +131,10 @@ const historySlider = new SwiperCore(".history__images-slider", {
   spaceBetween: 50,
   slidesPerView: 2.5,
   centeredSlides: true,
-
-  observeSlideChildren: true,
-  observeParents: true,
-  observer: true,
-
+  slideToClickedSlide: true,
+  //observeSlideChildren: true,
+  //observeParents: true,
+  //observer: true,
   virtual: {
     slides: slideCollection,
     cache: true,
@@ -156,12 +150,42 @@ const historySlider = new SwiperCore(".history__images-slider", {
       return slide;
     }
   },
+  on: {
+    beforeTransitionStart: (e) => {
 
-  controller: {
-    by: 'container',
+      // Put in variable activeSlide the real active slide
+      let activeSlide;
+      let slides = e.slides;
+      slides.forEach(item => {
+        if (item.classList.contains("swiper-slide-active")) {
+          activeSlide = item;
+        }
+      });
+
+      // Find out dataset of the slide
+      let activeSlideYear = activeSlide.dataset.slide;
+
+      let stamps = document.querySelectorAll(".history__stamp");
+      stamps = Array.from(stamps);
+
+      // Put in variable targetStamp the real target stamp
+      let targetStamp;
+      stamps.forEach(item => {
+        if (item.dataset.target == activeSlideYear) {
+          targetStamp = item;
+        }
+      });
+
+      // Find out index of the target stamp
+      let targetStampIndex = stamps.indexOf(targetStamp);
+
+      if (targetStampIndex > 0) {
+        historyTimeline.slideTo(targetStampIndex);
+      }
+    },
   },
-  slideToClickedSlide: true,
 });
+
 
 function createSlide(target, inList) {
   let slide = document.createElement("li");
@@ -194,115 +218,11 @@ for (let i = bikesYears[0]; i <= bikesYears[bikesYears.length - 1]; i++) {
 const historyTimeline = new SwiperCore(".history__timeline-slider", {
   loop: false,
   speed: 500,
-  //spaceBetween: 10,
+  spaceBetween: 20,
   slidesPerView: 'auto',
   centeredSlides: true,
   freeMode: true,
-  controller: {
-    by: 'container',
-  },
-  slideToClickedSlide: true,
-  /*
-  virtual: {
-    slides: slideCollection,
-    cache: true,
-    renderSlide: function (slide, index) {
-      console.log(bikesYears)
-      let currenStamp = bikesYears[index];
-      let nextStamp = bikesYears[index + 1];
-      console.log(nextStamp);
-      let stampRange = [];
-      for (let i = +currenStamp + +1; i < nextStamp; i++) {
-        let template = `
-        <span class="history__stamp-year">
-          ${i}
-        </span>
-        `;
-        stampRange.push(template);
-      }
-      let output = stampRange.join('');
-
-      slide = `<li class="history__stamp swiper-slide">
-                <span class="history__stamp-data">
-                  ${bikesYears[index]}
-                </span>
-                ${output}
-              </li>`;
-      return slide;
-    }
-  },
-  */
 });
-
-historyTimeline.controller.control = historySlider;
-historySlider.controller.control = historyTimeline;
-
-
-
-/*
-historySlider.on("init", function () {
-  console.log(document.querySelector(".history__slide.swiper-slide-active"));
-});
-*/
-
-
-historySlider.on("slideChangeTransitionStart", function () {
-
-   // Get the active-slide when slide is changing
-   let activeHistoryImage = document.querySelector(".history__slide.swiper-slide-active");
-   console.log(activeHistoryImage);
-
-   // Get the active-slide data-slide attribute
-   let activeHistoryImageAttr = activeHistoryImage.getAttribute("data-slide");
-   console.log(activeHistoryImageAttr);
-
-   let historyTimestamp = document.querySelectorAll(".history__stamp");
-
-   // Get the cycle from timeline row
-   historyTimestamp.forEach(item => {
-      if (item.dataset.target == activeHistoryImageAttr) {
-         let activeTimestamp = item;
-
-         // Remove from any timeline slide active class
-         /*historyTimestamp.forEach(elem => {
-            elem.classList.remove("swiper-slide-active");
-         });*/
-
-         // Remove from any timeline slide prev class
-         historyTimestamp.forEach(elem => {
-            elem.classList.remove("swiper-slide-prev");
-         });
-
-         // Remove from any timeline slide next class
-         historyTimestamp.forEach(elem => {
-            elem.classList.remove("swiper-slide-next");
-         });
-
-         // Add active class to activeTimestamp, previous to previous and next to next
-         activeTimestamp.classList.add("swiper-slide-active");
-         activeTimestamp.previousElementSibling.classList.add("swiper-slide-prev");
-         activeTimestamp.nextElementSibling.classList.add("swiper-slide-next");
-      }
-   });
-
-   /*
-   let allYears = document.querySelectorAll(".history__stamp");
-   allYears.forEach(item => {
-      let activeThumb = item;
-      let activeThumbYear = activeThumb.getAttribute("data-target");
-
-      if (activeThumbYear == activeSlideYear) {
-      allYears.forEach(elem => {
-         elem.classList.remove("swiper-slide-active");
-      });
-
-      activeThumb.classList.add("swiper-slide-active");
-      }
-   })
-   */
-});
-
-
 
 
 
