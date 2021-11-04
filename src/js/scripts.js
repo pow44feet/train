@@ -144,7 +144,9 @@ const historySlider = new SwiperCore(".history__images-slider", {
                   <img src="images/history/${slideCollection[index]}.png" alt="">
                 </div>
                 <p class="history__slide-title">
-                  ${bikesYears[index]} ${slideNames[index]}
+                  <span>
+                    ${bikesYears[index]} ${slideNames[index]}
+                  </span>
                 </p>
               </li>`;
       return slide;
@@ -221,7 +223,10 @@ const historyTimeline = new SwiperCore(".history__timeline-slider", {
   spaceBetween: 20,
   slidesPerView: 'auto',
   centeredSlides: true,
-  freeMode: true,
+  freeMode: false,
+  controller: {
+    by: 'container',
+  },
 });
 
 
