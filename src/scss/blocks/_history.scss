@@ -17,11 +17,16 @@
 
 .history__images {
   position: relative;
-  margin: 0 70px;
+  margin-bottom: 30px;
 }
 
 .history__images-slider {
   padding-bottom: 40px;
+  margin: 0 70px;
+}
+
+.history__images-wrapper {
+  @include list-reset;
 }
 
 .history__images .swiper-slide {
@@ -63,43 +68,133 @@
   transform: translateY(0%);
 }
 
-/* .history__images-slider .swiper-slide-prev .history__slide-title span,
-.history__images-slider .swiper-slide-next .history__slide-title span {
-
-} */
-
-
 .history__slide.swiper-slide-active {
   opacity: 1;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .history__slide-image {
   max-width: 100%;
 }
 
+.history__arrow {
+  --width: 30px;
+  --height: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--width);
+  height: var(--height);
+  background-color: #0000;
+  background-size: var(--width) var(--height);
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' fill='%23E6E6E6' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 306 306' style='enable-background:new 0 0 306 306;' xml:space='preserve'%3E%3Cg%3E%3Cg id='chevron-right'%3E%3Cpolygon points='94.35,0 58.65,35.7 175.95,153 58.65,270.3 94.35,306 247.35,153 '/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &--prev {
+    left: 10px;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  &--next {
+    right: 10px;
+  }
+}
+
 .history__timeline {
   display: flex;
-  margin: 0 70px;
 }
 
 .history__timeline-slider {
   padding: 30px 0;
+  margin: 0 70px;
+}
+
+.history__timeline-wrapper {
+  @include list-reset;
 }
 
 .history__stamp {
   display: flex;
   flex-direction: row;
-  width: auto !important;
+  //width: auto !important;
+  width: 1px;
 
   &--target {
-    cursor: pointer;
+
+    & .history__date {
+
+      & span {
+        cursor: pointer;
+        font-size: 12px;
+        //letter-spacing: 0.5px;
+        color: $gray;
+      }
+    }
   }
 
-  & span {
-    display: block;
+  &:nth-child(even) {
+
+      & .history__date {
+
+        &::after {
+          bottom: -52px;
+          height: 52px;
+        }
+      }
+  }
+
+  &.swiper-slide-active {
+
+    & .history__date {
+
+      & span {
+        top: -28px;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 1px;
+        color: $mercury;
+      }
+
+      &::after {
+        bottom: -60px;
+        height: 70px;
+        background-color: $mercury;
+      }
+    }
   }
 }
+
+.history__date {
+  position: relative;
+  display: block;
+  padding-bottom: 18px;
+  margin-bottom: 52px;
+  width: 1px;
+
+  & span {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0;
+    transition: 0.3s cubic-bezier(0.17, 0.85, 0.438, 0.99);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -44px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 36px;
+    background-color: $gray;
+    transition: 0.3s cubic-bezier(0.17, 0.85, 0.438, 0.99);
+  }
+}
+
+
 
 
 /*

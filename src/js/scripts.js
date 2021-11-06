@@ -132,9 +132,10 @@ const historySlider = new SwiperCore(".history__images-slider", {
   slidesPerView: 2.5,
   centeredSlides: true,
   slideToClickedSlide: true,
-  //observeSlideChildren: true,
-  //observeParents: true,
-  //observer: true,
+  navigation: {
+    nextEl: '.history__arrow--next',
+    prevEl: '.history__arrow--prev',
+  },
   virtual: {
     slides: slideCollection,
     cache: true,
@@ -181,7 +182,7 @@ const historySlider = new SwiperCore(".history__images-slider", {
       // Find out index of the target stamp
       let targetStampIndex = stamps.indexOf(targetStamp);
 
-      if (targetStampIndex > 0) {
+      if (targetStampIndex >= 0) {
         historyTimeline.slideTo(targetStampIndex);
       }
     },
@@ -195,8 +196,11 @@ function createSlide(target, inList) {
   slide.classList.add("swiper-slide");
   let slideSpan = document.createElement("span");
   slideSpan.classList.add("history__date");
-  slideSpan.innerHTML = target;
   slide.prepend(slideSpan);
+  let slideTitle = document.createElement("span");
+  slideSpan.prepend(slideTitle);
+  slideTitle.innerHTML = target;
+
 
   if (inList != '' && inList != undefined) {
     slide.classList.add("history__stamp--target");
@@ -220,13 +224,14 @@ for (let i = bikesYears[0]; i <= bikesYears[bikesYears.length - 1]; i++) {
 const historyTimeline = new SwiperCore(".history__timeline-slider", {
   loop: false,
   speed: 500,
-  spaceBetween: 20,
+  spaceBetween: 25,
   slidesPerView: 'auto',
   centeredSlides: true,
-  freeMode: false,
+  freeMode: true,
   controller: {
     by: 'container',
   },
+  simulateTouch: false,
 });
 
 
