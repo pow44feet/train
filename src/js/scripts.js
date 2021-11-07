@@ -72,6 +72,22 @@ headerLink.forEach((item, index) => {
 });
 
 
+let scrolltop = pageYOffset;
+
+window.addEventListener('scroll', function(){
+  if (pageYOffset > scrolltop) { // сравнить
+    header.classList.add("header--scroll");
+  } else {
+    //console.log('Scroll Up');
+  }
+  scrolltop = pageYOffset;
+
+  if (pageYOffset == 0) {
+    header.classList.remove("header--scroll");
+  }
+});
+
+
 
 mapClose.forEach(item => {
   item.addEventListener("click", hideInfo);
@@ -128,8 +144,6 @@ const historySlider = new SwiperCore(".history__images-slider", {
   loop: false,
   autoHeight: true,
   speed: 500,
-  spaceBetween: 50,
-  slidesPerView: 2.5,
   centeredSlides: true,
   slideToClickedSlide: true,
   navigation: {
@@ -187,6 +201,24 @@ const historySlider = new SwiperCore(".history__images-slider", {
       }
     },
   },
+  breakpoints: {
+    1100: {
+      spaceBetween: 50,
+      slidesPerView: 2.5,
+    },
+    768: {
+      spaceBetween: 30,
+      slidesPerView: 2.2,
+    },
+    600: {
+      spaceBetween: 30,
+      slidesPerView: 1.8,
+    },
+    300: {
+      spaceBetween: 30,
+      slidesPerView: 1.2,
+    }
+  }
 });
 
 
@@ -224,14 +256,20 @@ for (let i = bikesYears[0]; i <= bikesYears[bikesYears.length - 1]; i++) {
 const historyTimeline = new SwiperCore(".history__timeline-slider", {
   loop: false,
   speed: 500,
-  spaceBetween: 25,
-  slidesPerView: 'auto',
   centeredSlides: true,
-  freeMode: true,
-  controller: {
-    by: 'container',
-  },
+  slidesPerView: 'auto',
   simulateTouch: false,
+  breakpoints: {
+    440: {
+      spaceBetween: 25,
+    },
+    380: {
+      spaceBetween: 23,
+    },
+    300: {
+      spaceBetween: 21,
+    }
+  }
 });
 
 

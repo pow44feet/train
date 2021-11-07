@@ -21,7 +21,7 @@
 }
 
 .history__images-slider {
-  padding-bottom: 40px;
+  padding: 40px 0;
   margin: 0 70px;
 }
 
@@ -60,6 +60,7 @@
   line-height: 100%;
   letter-spacing: .7px;
   color: $mercury;
+  text-align: center;
   transition: 0.7s cubic-bezier(0.17, 0.85, 0.438, 0.99);
   transition-delay: 0.3s;
 }
@@ -106,6 +107,7 @@
 }
 
 .history__timeline-slider {
+  width: 100%;
   padding: 30px 0;
   margin: 0 70px;
 }
@@ -194,27 +196,61 @@
   }
 }
 
+@media (max-width: 991.98px) {
 
+  .history__images-slider {
+    margin: 0;
+  }
 
+  .history__arrow {
+    display: none;
+  }
 
-/*
-.history__stamp-data {
-  display: block;
-  font-family: $font-main;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 100%;
-  letter-spacing: .7px;
-  color: $mercury;
+  .history__timeline-slider {
+    margin: 0;
+  }
+
 }
 
-.history__stamp-year {
-  display: block;
-  font-family: $font-main;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 100%;
-  letter-spacing: .7px;
-  color: $mercury;
+@media (max-width: 599.98px) {
+
+  .history__date {
+    padding-bottom: 12px;
+  }
+
+  .history__date::after {
+    bottom: -36px;
+    height: 28px;
+  }
+
+  .history__stamp:nth-child(even) .history__date::after {
+    bottom: -44px;
+    height: 44px;
+  }
+
+  .history__stamp.swiper-slide-active .history__date::after {
+    bottom: -52px;
+    height: 62px;
+  }
 }
-*/
+
+@media (max-width: 379.98px) {
+
+  .history__title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 359.98px) {
+
+  .history__title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 339.98px) {
+
+  .history__title {
+    font-size: 22px;
+  }
+}

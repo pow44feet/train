@@ -371,14 +371,14 @@
       font-size: 32px;
     }
   }
+
+  .hero-slider .hero-slider__pagination {
+    display: none;
+  }
 }
 
 @media (max-width: 359.98px) {
   .hero-slider__title span {
     font-size: 30px;
-  }
-
-  .hero-slider .hero-slider__pagination {
-    display: none;
   }
 }
