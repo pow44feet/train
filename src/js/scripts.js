@@ -328,3 +328,23 @@ function bodyCover() {
   }
 }
 
+
+ymaps.ready(init);
+    function init(){
+      var weAreHere = new ymaps.Map("map", {
+          center: [55.73912494, 37.62594951],
+          zoom: 12,
+      });
+
+      weAreHere.controls.remove('geolocationControl');
+      weAreHere.controls.remove('searchControl');
+
+      weAreHere.behaviors.disable("scrollZoom");
+
+      var ourPlace = new ymaps.Placemark([55.73912494, 37.62594951], {}, {
+        preset: 'islands#blackBicycle2CircleIcon',
+        iconImageSize: [20, 20],
+        iconImageOffset: [30, 10],
+      });
+      weAreHere.geoObjects.add(ourPlace);
+    }
