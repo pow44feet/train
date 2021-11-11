@@ -333,7 +333,7 @@ ymaps.ready(init);
     function init(){
       var weAreHere = new ymaps.Map("map", {
           center: [55.73912494, 37.62594951],
-          zoom: 12,
+          zoom: 14,
       });
 
       weAreHere.controls.remove('geolocationControl');

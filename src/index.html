@@ -986,9 +986,51 @@
           <h2 class="contact__title section-title">
             Как нас найти
           </h2>
-          <div class="contact__map" id="map">
-
+          <div class="contact__body">
+            <div class="contact__body-item contact__map" id="map"></div>
+            <form class="contact__body-item contact__form">
+              <h3 class="contact__form-title">
+                Напишите нам
+              </h3>
+              <label class="contact__field">
+                Имя
+                <input class="contact__input contact__input--name" type="text" name="name">
+              </label>
+              <label class="contact__field">
+                Электронная почта
+                <input class="contact__input contact__input--email" type="email" name="email">
+              </label>
+              <label class="contact__field">
+                Телефон
+                <input class="contact__input contact__input--phone" type="text" name="name">
+              </label>
+              <label class="contact__field">
+                Цель
+                <select class="contact__select" name="intention">
+                  <option value="buy">
+                    Купить
+                  </option>
+                  <option value="question">
+                    Вопрос
+                  </option>
+                  <option value="complaint">
+                    Жалоба
+                  </option>
+                  <option value="proposal">
+                    Предложение
+                  </option>
+                </select>
+              </label>
+              <label class="contact__field">
+                Ваше обращение
+                <textarea class="contact__textarea" name="text"></textarea>
+              </label>
+              <button class="contact__button-send buttonbutton--square button--gray">
+                Отправить
+              </button>
+            </form>
           </div>
+
         </div>
       </section>
 
