@@ -132,6 +132,12 @@ const scripts = () => {
     .pipe(browserSync.stream());
 }
 
+const vendor = () => {
+  return src("./src/js/vendor.js")
+  .pipe(dest("./app/js/"))
+  .pipe(browserSync.stream());
+}
+
 const watchFiles = () => {
     browserSync.init({
         server: {
@@ -149,10 +155,11 @@ const watchFiles = () => {
     watch("./src/fonts/**.ttf", fonts);
     watch("./src/fonts/**.ttf", fontsStyle);
     watch("./src/js/**/*.js", scripts);
+    watch("./src/js/**/*.js", vendor);
 }
 
 exports.styles = styles;
 exports.watchFiles = watchFiles;
 exports.fileinclude = htmlInclude;
 
-exports.default = series(clean, parallel(htmlInclude, scripts, fonts, others, imagesToApp, svgSprites), fontsStyle, styles, watchFiles);
+exports.default = series(clean, parallel(htmlInclude, scripts, vendor, fonts, others, imagesToApp, svgSprites), fontsStyle, styles, watchFiles);

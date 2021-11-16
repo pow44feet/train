@@ -12,11 +12,11 @@
 }
 
 .contact__map {
-  height: 100%;
+   min-height: 400px;
 }
 
 .contact__form {
-  padding: 20px 50px 30px;
+  padding: 40px 50px 40px;
 }
 
 .contact__form-title {
@@ -24,7 +24,7 @@
   margin-bottom: 40px;
   font-size: 28px;
   letter-spacing: .4px;
-  color: $mine-shaft;
+  color: $mercury;
 }
 
 .contact__field {
@@ -32,6 +32,41 @@
   width: 100%;
   margin: 0;
   margin-bottom: 30px;
+
+  & .choices {
+    margin-top: 14px;
+    color: $gray;
+  }
+
+  & .choices__inner,
+  & .choices__list--dropdown {
+    font-size: 16px;
+    border: 1px solid $gray;
+    border-radius: 0;
+    background-color: $mine-shaft;
+  }
+}
+
+.choices[data-type*=select-one]:after {
+  border-color: $gray transparent transparent transparent;
+}
+
+.choices[data-type*=select-one].is-open:after {
+  border-color: transparent transparent $gray transparent;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+  color: $white-color;
+  background-color: transparent;
+}
+
+.choices[data-type*=select-one] .choices__inner {
+  padding: 15.5px;
+}
+
+.choices__list--dropdown .choices__item {
+  padding: 20px;
+  font-size: 16px;
 }
 
 .contact__input,
@@ -39,5 +74,22 @@
 .contact__textarea {
   display: block;
   width: 100%;
+  padding: 20px;
   margin-top: 14px;
+  color: $white-color;
+  font-size: 16px;
+  background-color: transparent;
+  border: 1px solid $gray;
+  border-radius: 0;
+}
+
+.contact__textarea {
+  resize: vertical;
+  min-height: 82px;
+  max-height: 150px;
+}
+
+.contact__button-send {
+  font-size: 16px;
+  text-transform: uppercase;
 }

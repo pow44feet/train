@@ -8,7 +8,7 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  transition: color, border .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
+  transition: .25s cubic-bezier(0.858, 0.01, 0.068, 0.99);
 
   &--square {
     padding: 20px 30px;

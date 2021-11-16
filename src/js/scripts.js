@@ -19,6 +19,22 @@ let historyImagesSlider = document.querySelector(".history__images-slider");
 let historyTimelineWrapper = document.querySelector(".history__timeline-wrapper");
 
 
+// Style all the select tags
+const customSelect = () => {
+  let fields = document.querySelectorAll(".contact__select");
+  console.log(fields);
+  const formField = fields.forEach(item => {
+    const fields = new Choices(item, {
+      searchEnabled: false,
+      placeholder: false,
+      itemSelectText: '',
+    });
+  });
+}
+customSelect();
+
+
+
 
 let hondaLineage = {
   1946: "Model A",
@@ -330,21 +346,22 @@ function bodyCover() {
 
 
 ymaps.ready(init);
-    function init(){
-      var weAreHere = new ymaps.Map("map", {
-          center: [55.73912494, 37.62594951],
-          zoom: 14,
-      });
+function init(){
+   var weAreHere = new ymaps.Map("map", {
+         center: [55.73912494, 37.62594951],
+         zoom: 14,
+   });
 
-      weAreHere.controls.remove('geolocationControl');
-      weAreHere.controls.remove('searchControl');
+   weAreHere.controls.remove('geolocationControl');
+   weAreHere.controls.remove('searchControl');
 
-      weAreHere.behaviors.disable("scrollZoom");
+   weAreHere.behaviors.disable("scrollZoom");
 
-      var ourPlace = new ymaps.Placemark([55.73912494, 37.62594951], {}, {
-        preset: 'islands#blackBicycle2CircleIcon',
-        iconImageSize: [20, 20],
-        iconImageOffset: [30, 10],
-      });
-      weAreHere.geoObjects.add(ourPlace);
-    }
+   var ourPlace = new ymaps.Placemark([55.73912494, 37.62594951], {}, {
+      preset: 'islands#blackBicycle2CircleIcon',
+      iconImageSize: [20, 20],
+      iconImageOffset: [30, 10],
+   });
+   weAreHere.geoObjects.add(ourPlace);
+}
+
