@@ -981,56 +981,92 @@
         </div>
       </section>
 
-      <section class="contact">
+      <section class="main__contact contact">
         <div class="contact__container container">
           <h2 class="contact__title section-title">
-            Как нас найти
+            Контакты
           </h2>
-          <div class="contact__body">
-            <div class="contact__body-item contact__map" id="map"></div>
-            <form class="contact__body-item contact__form">
-              <h3 class="contact__form-title">
-                Напишите нам
-              </h3>
-              <label class="contact__field">
-                Имя
-                <input class="contact__input contact__input--name" type="text" name="name" placeholder="Василий">
-              </label>
-              <label class="contact__field">
-                Электронная почта
-                <input class="contact__input contact__input--email" type="email" name="email" placeholder="vasiliysnow@gmail.com">
-              </label>
-              <label class="contact__field">
-                Телефон
-                <input class="contact__input contact__input--phone tel" type="tel" name="name" placeholder="+79998765432">
-              </label>
-              <label class="contact__field">
-                Цель
-                <select class="contact__select" name="intention">
-                  <option value="buy">
-                    Купить
-                  </option>
-                  <option value="question">
-                    Вопрос
-                  </option>
-                  <option value="complaint">
-                    Жалоба
-                  </option>
-                  <option value="proposal">
-                    Предложение
-                  </option>
-                </select>
-              </label>
-              <label class="contact__field">
-                Ваше обращение
-                <textarea class="contact__textarea" name="text"></textarea>
-              </label>
-              <button class="contact__button-send button button--square button--gray">
-                Отправить
-              </button>
-            </form>
+          <ul class="contact__list">
+            <li class="contact__item">
+              <div class="contact__icon contact__icon--phone"></div>
+              <div class="contact__content">
+                <p class="contact__name">
+                  Позвонить
+                </p>
+                <a class="contact__data contact__link" href="tel:+79164475888">
+                  +7 916 447 58 88
+                </a>
+              </div>
+            </li>
+            <li class="contact__item">
+              <div class="contact__icon contact__icon--address"></div>
+              <div class="contact__content">
+                <p class="contact__name">
+                  Адрес
+                </p>
+                <address class="contact__data">
+                  Москва, ул. Прилепинская, 18
+                </address>
+              </div>
+            </li>
+            <li class="contact__item">
+              <div class="contact__icon contact__icon--email"></div>
+              <div class="contact__content">
+                <p class="contact__name">
+                  Написать
+                </p>
+                <a class="contact__data contact__link" href="mailto:andrianov.ov@yandex.ru">
+                  andrianov.ov@yandex.ru
+                </a>
+              </div>
+            </li>
+          </ul>
+          <form class="contact__form">
+            <label class="contact__field">
+              Имя
+              <input class="contact__input contact__input--name" type="text" name="name" placeholder="Василий">
+            </label>
+            <label class="contact__field">
+              Электронная почта
+              <input class="contact__input contact__input--email" type="email" name="email" placeholder="vasiliysnow@gmail.com">
+            </label>
+            <label class="contact__field">
+              Телефон
+              <input class="contact__input contact__input--phone tel" type="tel" name="name" placeholder="+79998765432">
+            </label>
+            <label class="contact__field">
+              Цель
+              <select class="contact__select" name="intention">
+                <option value="buy">
+                  Купить
+                </option>
+                <option value="question">
+                  Вопрос
+                </option>
+                <option value="complaint">
+                  Жалоба
+                </option>
+                <option value="proposal">
+                  Предложение
+                </option>
+              </select>
+            </label>
+            <label class="contact__field">
+              Ваше обращение
+              <textarea class="contact__textarea" name="text" placeholder="Какие же вы молодцы, словами не передать"></textarea>
+            </label>
+            <button class="contact__button-send button button--square button--gray">
+              Отправить
+            </button>
+          </form>
           </div>
 
+        </div>
+      </section>
+
+      <section class="address">
+        <div class="address__container container">
+          <div class="contact__body-item contact__map" id="map"></div>
         </div>
       </section>
 

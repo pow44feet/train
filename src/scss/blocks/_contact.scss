@@ -1,49 +1,120 @@
 .contact__title {
   margin: 0;
-  margin-bottom: 45px;
+  margin-bottom: 100px;
 }
 
-.contact__body {
+.contact__list {
+  @include list-reset;
   display: flex;
+  max-width: 1200px;
+  margin: 0 auto 100px;
 }
 
-.contact__body-item {
-  flex: 0 1 50%;
+.contact__item {
+  display: flex;
+  flex: 0 1 33.333%;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
+
+.contact__icon {
+  position: relative;
+  width: 65px;
+  height: 65px;
+  margin-right: 20px;
+  background-color: $white-color;
+  border-radius: 50%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 26px;
+    height: 26px;
+    background-position: center;
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+  }
+
+  &--phone {
+
+    &::after {
+      background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' fill='%23000' width='' height='' viewBox='0 0 459 459' style='enable-background:new 0 0 459 459;' xml:space='preserve'%3E%3Cg%3E%3Cg id='call'%3E%3Cpath d='M91.8,198.9c35.7,71.4,96.9,130.05,168.3,168.3L316.2,311.1c7.649-7.649,17.85-10.199,25.5-5.1 c28.05,10.2,58.649,15.3,91.8,15.3c15.3,0,25.5,10.2,25.5,25.5v86.7c0,15.3-10.2,25.5-25.5,25.5C193.8,459,0,265.2,0,25.5 C0,10.2,10.2,0,25.5,0h89.25c15.3,0,25.5,10.2,25.5,25.5c0,30.6,5.1,61.2,15.3,91.8c2.55,7.65,0,17.85-5.1,25.5L91.8,198.9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+  }
+
+  &--address {
+
+    &::after {
+      background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' fill='%23000' width='' height='' viewBox='0 0 510 510' style='enable-background:new 0 0 510 510;' xml:space='preserve'%3E%3Cg%3E%3Cg id='place'%3E%3Cpath d='M255,0C155.55,0,76.5,79.05,76.5,178.5C76.5,311.1,255,510,255,510s178.5-198.9,178.5-331.5C433.5,79.05,354.45,0,255,0z M255,242.25c-35.7,0-63.75-28.05-63.75-63.75s28.05-63.75,63.75-63.75s63.75,28.05,63.75,63.75S290.7,242.25,255,242.25z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    }
+  }
+
+  &--email {
+
+    &::after {
+      background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='' height='' viewBox='0 0 510 510' style='enable-background:new 0 0 510 510;' xml:space='preserve'%3E%3Cg%3E%3Cg id='mail'%3E%3Cpath d='M459,51H51C22.95,51,0,73.95,0,102v306c0,28.05,22.95,51,51,51h408c28.05,0,51-22.95,51-51V102 C510,73.95,487.05,51,459,51z M459,153L255,280.5L51,153v-51l204,127.5L459,102V153z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    }
+  }
+}
+
+.contact__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact__name {
+  font-size: 22px;
+  color: $white-color;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.contact__data {
+  font-family: $font-secondary;
+  font-size: 18px;
+  font-style: normal;
+  color: $silver;
+  text-decoration: none;
+  transition: .25s ease-in;
+
+  &[href]:hover {
+    color: $mercury;
+  }
+}
+
 
 .contact__map {
    min-height: 400px;
 }
 
 .contact__form {
-  padding: 40px 50px 40px;
-}
-
-.contact__form-title {
-  margin: 0;
-  margin-bottom: 40px;
-  font-size: 28px;
-  letter-spacing: .4px;
-  color: $mercury;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .contact__field {
-  display: block;
-  width: 100%;
+  flex: 0 0 calc((100% - 25px) / 2);
   margin: 0;
-  margin-bottom: 30px;
+  margin-right: 25px;
+  margin-bottom: 25px;
 
-  & .choices {
-    margin-top: 14px;
-    color: $gray;
+  &:nth-child(even),
+  &:last-of-type {
+    margin-right: 0;
   }
 
-  & .choices__inner,
-  & .choices__list--dropdown {
-    font-size: 16px;
-    border: 1px solid $gray;
-    border-radius: 0;
-    background-color: $mine-shaft;
+  &:last-of-type {
+    flex: 0 0 100%;
+    margin-bottom: 45px;
   }
 }
 
@@ -55,23 +126,59 @@
   border-color: transparent transparent $gray transparent;
 }
 
-.choices__list--dropdown .choices__item--selectable.is-highlighted {
-  color: $white-color;
-  background-color: transparent;
-}
-
 .choices[data-type*=select-one] .choices__inner {
-  padding: 15.5px;
+  padding: 16px;
 }
 
-.choices__list--dropdown .choices__item {
-  padding: 20px;
-  font-size: 16px;
+.choices {
+  margin-top: 14px;
+  color: $gray;
+
+  & .choices__inner,
+  & .choices__list--dropdown {
+    font-size: 16px;
+    border: 1px solid $gray;
+    border-radius: 0;
+    background-color: $mine-shaft;
+    transition: .25s ease-in;
+  }
+
+  &.is-focused {
+
+    & .choices__inner {
+      border: 1px solid $white-color;
+    }
+  }
+
+  &.is-open {
+
+    & .choices__inner {
+      border: 1px solid $gray;
+    }
+  }
+}
+
+.choices__list--dropdown {
+
+  & .choices__item {
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  & .choices__item--selectable.is-highlighted {
+    color: $white-color;
+    background-color: transparent;
+  }
+
+  &.is-active {
+    border: 1px solid $white-color;
+  }
 }
 
 .contact__input,
 .contact__select,
 .contact__textarea {
+  overflow: hidden;
   display: block;
   width: 100%;
   padding: 20px;
@@ -81,6 +188,26 @@
   background-color: transparent;
   border: 1px solid $gray;
   border-radius: 0;
+  transition: .25s ease-in;
+
+  &::placeholder {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: .25s ease-in;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: 1px solid $white-color;
+
+    &::placeholder {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(100px);
+    }
+  }
 }
 
 .contact__textarea {
@@ -90,6 +217,13 @@
 }
 
 .contact__button-send {
+  margin: 0 auto;
   font-size: 16px;
   text-transform: uppercase;
+
+  &:focus-visible {
+    color: $white-color;
+    outline: none;
+    border: 1px solid $white-color;
+  }
 }
