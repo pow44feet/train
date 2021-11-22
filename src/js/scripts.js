@@ -18,6 +18,8 @@ let historySlideTitle = document.querySelectorAll(".history__slide-title");
 let historyImagesSlider = document.querySelector(".history__images-slider");
 let historyTimelineWrapper = document.querySelector(".history__timeline-wrapper");
 
+let contactMapOverlay = document.querySelector(".contact__map-overlay");
+
 
 // Style all the select tags
 const customSelect = () => {
@@ -86,6 +88,8 @@ headerLink.forEach((item, index) => {
 
     });
 });
+
+contactMapOverlay.addEventListener("click", mapOverlayChange);
 
 
 let scrolltop = pageYOffset;
@@ -309,6 +313,15 @@ function burgerMenu() {
       header.classList.add("header--active");
       nav.classList.add("nav--active");
       burger.classList.add("burger--active");
+  }
+}
+
+function mapOverlayChange(e) {
+  let target = event.target;
+  if (target.classList.contains("contact__map-overlay--hide")) {
+    target.classList.remove("contact__map-overlay--hide");
+  } else {
+    target.classList.add("contact__map-overlay--hide");
   }
 }
 

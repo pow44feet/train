@@ -1,3 +1,7 @@
+.contact__container {
+  margin-bottom: 90px;
+}
+
 .contact__title {
   margin: 0;
   margin-bottom: 100px;
@@ -29,15 +33,16 @@
   border-radius: 50%;
 
   &::after {
+    --size: 26px;
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 26px;
-    height: 26px;
+    width: var(--size);
+    height: var(--size);
     background-position: center;
-    background-size: 26px 26px;
+    background-size: var(--size) var(--size);
     background-repeat: no-repeat;
   }
 
@@ -87,11 +92,6 @@
   &[href]:hover {
     color: $mercury;
   }
-}
-
-
-.contact__map {
-   min-height: 400px;
 }
 
 .contact__form {
@@ -225,5 +225,121 @@
     color: $white-color;
     outline: none;
     border: 1px solid $white-color;
+  }
+}
+
+.contact__map {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+
+  @media (min-width: 1024.98px) {
+
+    &:hover {
+
+      & .contact__map-overlay {
+        background-color: rgba($white-color, 0.75);
+      }
+
+      & .contact__map-title {
+
+        &::before {
+          transform: translate(-50%, 36px);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+.contact__map-overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($white-color, 0.9);
+  transition: .25s ease-in;
+  cursor: pointer;
+}
+
+.contact__map-overlay--hide {
+  transform: translateY(90%);
+  justify-content: flex-start;
+
+  & .contact__map-icon {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+  }
+
+  & .contact__map-title {
+
+  }
+}
+
+.contact__map-body {
+  height: 100%;
+}
+
+.contact__map-icon {
+  position: relative;
+  display: block;
+  width: 65px;
+  height: 65px;
+  margin-bottom: 20px;
+  opacity: 1;
+  visibility: visible;
+  background-color: $black-color;
+  border-radius: 50%;
+  transition: .25s ease-in;
+
+  &::after {
+    --size: 26px;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--size);
+    height: var(--size);
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' fill='%23fff' width='' height='' viewBox='0 0 510 510' style='enable-background:new 0 0 510 510;' xml:space='preserve'%3E%3Cg%3E%3Cg id='place'%3E%3Cpath d='M255,0C155.55,0,76.5,79.05,76.5,178.5C76.5,311.1,255,510,255,510s178.5-198.9,178.5-331.5C433.5,79.05,354.45,0,255,0z M255,242.25c-35.7,0-63.75-28.05-63.75-63.75s28.05-63.75,63.75-63.75s63.75,28.05,63.75,63.75S290.7,242.25,255,242.25z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    background-position: center;
+    background-size: var(--size) var(--size);
+    background-repeat: no-repeat;
+  }
+}
+
+.contact__map-title {
+  position: relative;
+  margin: 0;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+  color: $mine-shaft;
+
+  &::before {
+    --size: 20px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 13px);
+    width: var(--size);
+    height: var(--size);
+    opacity: 0;
+    visibility: hidden;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='iso-8859-1'%3F%3E%3C!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' fill='%23000' width='' height='' viewBox='0 0 306 306' style='enable-background:new 0 0 306 306;' xml:space='preserve'%3E%3Cg%3E%3Cg id='expand-more'%3E%3Cpolygon points='270.3,58.65 153,175.95 35.7,58.65 0,94.35 153,247.35 306,94.35 '/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: var(--size) var(--size);
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: .25s ease-in;
   }
 }
