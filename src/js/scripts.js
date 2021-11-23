@@ -317,11 +317,10 @@ function burgerMenu() {
 }
 
 function mapOverlayChange(e) {
-  let target = event.target;
-  if (target.classList.contains("contact__map-overlay--hide")) {
-    target.classList.remove("contact__map-overlay--hide");
+  if (contactMapOverlay.classList.contains("contact__map-overlay--hide")) {
+    contactMapOverlay.classList.remove("contact__map-overlay--hide");
   } else {
-    target.classList.add("contact__map-overlay--hide");
+    contactMapOverlay.classList.add("contact__map-overlay--hide");
   }
 }
 
