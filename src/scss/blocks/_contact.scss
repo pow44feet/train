@@ -17,7 +17,7 @@
 .contact__item {
   display: flex;
   flex: 0 1 33.333%;
-  margin-right: 10px;
+  margin-right: 30px;
 
   &:last-child {
     margin-right: 0;
@@ -27,6 +27,7 @@
 .contact__icon {
   position: relative;
   width: 65px;
+  min-width: 65px;
   height: 65px;
   margin-right: 20px;
   background-color: $white-color;
@@ -85,6 +86,7 @@
   font-family: $font-secondary;
   font-size: 18px;
   font-style: normal;
+  line-height: 120%;
   color: $silver;
   text-decoration: none;
   transition: .25s ease-in;
@@ -212,7 +214,7 @@
 
 .contact__textarea {
   resize: vertical;
-  min-height: 82px;
+  min-height: 100px;
   max-height: 150px;
 }
 
@@ -386,4 +388,43 @@
 
 .contact__map-body {
   height: 100%;
+}
+
+@media (max-width: 991.98px) {
+
+   .contact__item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+   }
+
+   .contact__icon {
+      margin-right: 0;
+      margin-bottom: 20px;
+   }
+}
+
+@media (max-width: 767.98px) {
+
+   .contact__list {
+      flex-direction: column;
+   }
+
+   .contact__item {
+      margin-right: 0;
+      margin-bottom: 30px;
+   }
+
+   .contact__field {
+      flex: 0 0 100%;
+      margin-right: 0;
+   }
+}
+
+@media (max-width: 379.98px) {
+
+   .contact__textarea {
+      min-height: 150px;
+      max-height: 200px;
+   }
 }
